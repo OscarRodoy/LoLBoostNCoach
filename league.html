@@ -1,0 +1,111 @@
+<!--
+header
+promises
+calc price / meet our coaches
+https://leagueoflegends.fandom.com/wiki/Rank_(League_of_Legends)
+https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_Levelup.png
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LoL Boost & Coach</title>
+    <link rel="stylesheet" href="league.css">
+    <link rel="stylesheet" href="CarousellScrolling.css">
+    <link rel="icon" type="image/png" href="Images/logo.png">
+  </head>
+  <body>
+    <header>
+      <div id="headerIMG"></div>
+      <nav>
+        <div id="logo">
+          <p>LoL Boost & Coach</p>
+        </div>
+        <div id="btns">
+          <div onclick="select(this)" class="navBtns active">Home</div>
+          <div onclick="select(this)" class="navBtns">About</div>
+          <div onclick="select(this)" class="navBtns">Reviews</div>
+          <div onclick="select(this)" class="navBtns">Boosting</div>
+          <div onclick="select(this)" class="navBtns">Coaching</div>
+          <div onclick="select(this)" class="navBtns">Profile</div>
+        </div>
+      </nav>
+      <div id="headerContent">
+        <h1>LoL Boost & Coach</h1>
+        <p>Wave Goodbye to Elo Hell today and get your desired rank with our <span>Fast & Cheap</span> League of Legends Elo boosting done by Professionals with over 5 years in the industry</p>
+        <div id="btnContainer">
+          <div id="btnPrices">Check Our Prices</div>
+          <div id="btnCoaches">Meet Our Coaches</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="promises">
+        <div id="discord" style="background: rgba(89, 235, 252, 0.2);">
+          <img src="Images/iconSupport.png">
+          <h1>Got any questions?</h1>
+          <p>We value your safety and are always looking for ways to best take care of our customers.
+             Therefore, we offer a Free Live Call with any of our friendly and professional agends to discuss any questions you might have.</p>
+          <div id="btnLiveCall">Message Us On Discord &emsp; &ensp;<img src="Images/iconDiscord.png"></div>
+        </div>
+        <div style="background: rgba(0, 0, 139, 0.2);">
+          <img src="Images/iconTank.png">
+          <h1>Secure payment</h1>
+          <p>We offer safe payment options like PayPal and an easy-to go checkout process where all you necessitate to do is customize your boosting order to adequately fit your needs.</p>
+        </div>
+        <div style="background: rgba(209, 36, 160, 0.2)">
+          <img src="Images/iconMage.png">
+          <h1>Experience</h1>
+          <p>Our agends have been thriving in the Boosting & Coaching Market for 5+ years and have a 99% satisfactory rate.</p>
+        </div>
+        <div style="background: rgba(178, 137, 54, 0.2);">
+          <img src="Images/iconAssassin.png">
+          <h1>Appear Offline</h1>
+          <p>Your account is your account and we have no business sniffing around in your messages or using the Voice Chat. We make it appear as if we were never there!</p>
+        </div>
+        <div style="background: rgba(245, 159, 226, 0.2)">
+          <img src="Images/iconFighter.png">
+          <h1>Champ Prefrence</h1>
+          <p>Choose the Champions and Roles you prefer and we will play them as often as possible.</p>
+        </div>
+      </div>
+      <div id="services">
+        <div id="servicesIMG"></div>
+        <div id="boosting">
+          <h1>How Boosting Works</h1>
+          <div class="divStep counterreset"><p>Click on "Calculate Your Price"</p></div>
+          <div class="divStep"><p>Select your current and desired rank, LP gain, and champion prefrences</p></div>
+          <div class="divStep"><p>Use one of our payment methods</p></div>
+          <div class="divStep"><p>Your booster starts playing immediately and you can track the progress through Discord</p></div>
+          <div class="divStep"><p>Enjoy your boosted account!</p></div>
+          <div id="btnBoosting">Calculate Your Price</div>
+        </div>
+        <div id="coaching">
+          <h1>How Coaching Works</h1>
+          <div class="divStep counterreset"><p>Click on "Meet Our Coaches"</p></div>
+          <div class="divStep"><p>Pick a coach and select how long you want your session to be</p></div>
+          <div class="divStep"><p>Use one of our payment methods</p></div>
+          <div class="divStep"><p>You will instantly get in touch with your coach on Discord where you can book a time that works for you</p></div>
+          <div class="divStep"><p>Enjoy your new improved self!</p></div>
+          <div id="btnCoaching">Meet Our Coaches</div>
+        </div>
+      </div>
+      <div id="reviews">
+        <h1 class="CarousellHeadline">What Our Customers Says</h1>
+        <div id="CarousellBar_1" class="CarousellBar"> <!-- ID = jS | Class = CSS -->
+          <section onclick="next('L', '1')" id="btnNext_L1" class="btnNext btnNextL"> <section></section> <section></section> </section>
+          <section onclick="next('R', '1')" id="btnNext_R1" class="btnNext btnNextR"> <section></section> <section></section> </section>
+          <div class="divContainer">
+            <div id="divContent_1" class="divContent"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- Content, Contact, emaillist inp, trademark, refund policy, TOS, cookie policy  -->
+
+    </footer>
+    <script src="league.js"></script>
+    <script src="CarousellScrolling.js"></script>
+  </body>
+</html>

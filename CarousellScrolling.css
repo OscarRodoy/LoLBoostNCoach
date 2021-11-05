@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+:root{
+  --CarousellBarMargin: 60px;
+  --CarousellBarHeight: 280px;
+  --Secondary: #b28936;
+}
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  overflow-x: hidden;
+}
+/************************************************************************ Carousell Bar *****************************************************************/
+.CarousellHeadline{
+  color: white;
+  text-align: center;
+  margin: 50px;
+}
+.CarousellBar{
+   margin: 0 var(--CarousellBarMargin) 0 var(--CarousellBarMargin);
+   max-height: var(--CarousellBarHeight);
+   max-width: calc(100% - var(--CarousellBarMargin)*2);
+   position: relative;
+ }
+/************************************************************************ Next Buttons *****************************************************************/
+ #reviews:hover>.CarousellBar>.btnNextL{
+   transform: translateX(calc(0px - var(--CarousellBarMargin)));
+ }
+ #reviews:hover>.CarousellBar>.btnNextR{
+   transform: translateX(var(--CarousellBarMargin));
+ }
+ .CarousellBar>.btnNext{
+   position: absolute;
+   height: var(--CarousellBarHeight);
+   padding-top: calc(var(--CarousellBarHeight)/2 - 30px); /* 30px */
+   padding-bottom: calc(var(--CarousellBarHeight)/2 - 30px);
+   width: var(--CarousellBarMargin);
+   top: calc(50% - var(--CarousellBarHeight)/2 - 40px);
+   cursor: pointer;
+   transition: 0.5s;
+ }
+ .CarousellBar>.btnNextL{
+   left: 0px;
+ }
+ .CarousellBar>.btnNextR{
+   right: 0px;
+ }
+ .CarousellBar>.btnNext>section:nth-child(1){
+   background-color: white;
+   width: 6px;
+   height: 40px;
+   border-radius: 3px;
+   z-index: 100;
+   margin-left: 27px;
+   margin-bottom: -10px;
+   transition: background 0.5s;
+ }
+ .CarousellBar>.btnNextL>section:nth-child(1){
+   transform: rotate(30deg);
+ }
+ .CarousellBar>.btnNextR>section:nth-child(1){
+   transform: rotate(-30deg);
+ }
+ .CarousellBar>.btnNext>section:nth-child(2){
+   background-color: white;
+   width: 6px;
+   height: 40px;
+   border-radius: 3px;
+   z-index: 100;
+   margin-left: 27px;
+   margin-top: -10px;
+   transition: background 0.5s;
+ }
+ .CarousellBar>.btnNextL>section:nth-child(2){
+   transform: rotate(-30deg);
+ }
+ .CarousellBar>.btnNextR>section:nth-child(2){
+   transform: rotate(30deg);
+ }
+ .CarousellBar>.btnNextL:hover>section{
+   background-color: var(--Secondary);
+ }
+ .CarousellBar>.btnNextR:hover>section{
+   background-color: var(--Secondary);
+ }
+/************************************************************************ Carousell Bar Content *****************************************************************/
+ .CarousellBar>.divContainer{
+   width: 100%;
+   overflow: hidden;
+ }
+ .CarousellBar>.divContainer>.divContent{
+   display: grid;
+   grid-gap: 12px;
+   /* grid-template-columns: repeat(20, 1fr);   (set max divs to 20 - Done in JS)
+   width: calc(400% + 40px); */
+   background-color: #000511;
+ }
+ .CarousellBar>.divContainer>.divContent>div{
+   height: var(--CarousellBarHeight);
+   width: 80%;
+   margin-left: 10%;
+   position: relative;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#name{
+   color: white;
+   text-align: center;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#divRank{
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 10px 0;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#divRank>.rank{
+   height: 35px;
+   width: 35px;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#divRank>#arrow{
+   height: 20px;
+   width: 20px;
+   filter: invert(1);
+   margin: 0 5px;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#message{
+   color: white;
+   text-align: center;
+   font-style: italic;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#divStars{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 15px;
+ }
+ .CarousellBar>.divContainer>.divContent>div>#divStars>img{
+   width: 100px;
+ }

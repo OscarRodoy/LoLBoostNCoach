@@ -1,0 +1,501 @@
+/* ---------------------------------------------------------------- Main ---------------------------------------------------------------- */
+main>#order{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 0 5vw;
+  color: white;
+}
+main>#order>#orderBackground{
+  position: absolute;
+  top: var(--headerHeight);
+  left: 0;
+  width: 100vw;
+  height: 160vh;
+  background-image: url("Images/servicesIMG.jpeg");
+  background-size: cover;
+  filter: brightness(20%);
+  z-index: 0;
+}
+main>#order>#options{
+  min-height: 160vh;
+  background-color: var(--black);
+  z-index: 1;
+}
+main>#order>#options>div>.headlineDiv{
+  display: flex;
+  align-items: center;
+}
+main>#order>#options>div>.headlineDiv>.line:nth-child(1){
+  height: 4px;
+  width: calc(100% - 40px);
+  margin: 0 10px 0 30px;
+  border-radius: 2px;
+  background-color: white;
+}
+main>#order>#options>div>.headlineDiv>.line:nth-child(3){
+  height: 4px;
+  width: calc(100% - 40px);
+  margin: 0 30px 0 10px;
+  border-radius: 2px;
+  background-color: white;
+}
+main>#order>#options>div>.headlineDiv>.orderStep{
+  position: relative;
+  margin: 30px 0 30px 50px;
+  font-size: 30px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.counterreset{
+  counter-reset: myCounter;
+}
+main>#order>#options>div>.headlineDiv>.orderStep::before{
+  counter-increment: myCounter;
+  content: counter(myCounter) '';
+  position: absolute;
+  left: -50px;
+  top: -2px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gold);
+  border-radius: 50%;
+}
+main>#order>#options>#optBasics>div{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+main>#order>#options>#optBasics>div>div>p{
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 10%;
+  color: white;
+}
+main>#order>#options>#optBasics>div>div>p>span{
+  font-size: 16px;
+  filter: brightness(75%);
+  font-style: italic;
+}
+main>#order>#options>#optBasics>div>div>select{
+  padding: 12px;
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 4px;
+  border: 2px solid var(--darkgrey);
+  background-color: var(--darkgrey);
+  font-size: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+main>#order>#options>#optRanks>#rankGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main>#order>#options>#optRanks>#rankGrid>div>p{
+  font-size: 18px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+main>#order>#options>#optRanks>#rankGrid>#currentRank>.rank>#currentRankIMG{
+  background-image: url("Ranks/bronze1.png");
+  background-size: cover;
+  width: 140px;
+  height: 170px;
+}
+main>#order>#options>#optRanks>#rankGrid>#desiredRank>.rank>#desiredRankIMG{
+  background-image: url("Ranks/gold4.png");
+  background-size: cover;
+  width: 140px;
+  height: 170px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank{
+  display: flex;
+  justify-content: center;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.prev,
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.next{
+  height: 170px;
+  width: 50px;
+  cursor: pointer;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.btn>section{
+  background-color: white;
+  width: 6px;
+  height: 40px;
+  border-radius: 3px;
+  z-index: 100;
+  margin-left: 27px;
+  margin-top: 100%;
+  transition: background 0.5s;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.btn>section:nth-child(1){
+  margin-bottom: -10px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.btn>section:nth-child(2){
+  margin-top: -10px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.prev>section:nth-child(1){
+  transform: rotate(30deg);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.next>section:nth-child(1){
+  transform: rotate(-30deg);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.prev>section:nth-child(2){
+  transform: rotate(-30deg);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.next>section:nth-child(2){
+  transform: rotate(30deg);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.prev:hover>section{
+  background-color: var(--gold);
+}
+main>#order>#options>#optRanks>#rankGrid>div>.rank>.next:hover>section{
+  background-color: var(--gold);
+}
+main>#order>#options>#optRanks>#rankGrid>#currentRank>#currentRankText,
+main>#order>#options>#optRanks>#rankGrid>#desiredRank>#desiredRankText{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.division{
+  display: flex;
+  justify-content: center;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.division>div{
+  background-color: var(--darkgrey);
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-family: "NotoSans-Bold";
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+}
+main>#order>#options>#optRanks>#rankGrid>div>.division>.selected{
+  background-color: var(--gold);
+}
+main>#order>#options>#optRanks>#rankGrid>div>#desiredDiv{
+  display: flex;
+}
+main>#order>#options>#optRanks>#rankGrid>div>#desiredLP{
+  display: none;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  height: 50px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>#desiredLP>p{
+  line-height: 50px;
+}
+main>#order>#options>#optRanks>#rankGrid>div>#desiredLP>input{
+  background-color: var(--darkgrey);
+  width: 50%;
+  background-color: var(--darkgrey);
+  border-radius: 4px;
+  border: 0px;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+main>#order>#options>#optRanks>#rankGrid>div>#desiredLP>input::-webkit-outer-spin-button,
+main>#order>#options>#optRanks>#rankGrid>div>#desiredLP>input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main>#order>#options>#optRanks>#LP{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+main>#order>#options>#optRanks>#LP>div>p{
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 25%;
+  color: white;
+}
+main>#order>#options>#optRanks>#LP>div>select{
+  padding: 12px;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 4px;
+  border: 2px solid var(--darkgrey);
+  background-color: var(--darkgrey);
+  font-size: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+main>#order>#options>#optChamps>#champGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main>#order>#options>#optChamps>#champGrid>div>p{
+  font-size: 18px;
+  text-align: center;
+}
+main>#order>#options>#optChamps>#champGrid>div>.positionGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  margin: 10px 10%;
+}
+main>#order>#options>#optChamps>#champGrid>div>.positionGrid>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--grey);
+  border-radius: 4px;
+  cursor: pointer;
+}
+main>#order>#options>#optChamps>#champGrid>div>.positionGrid>.selected{
+  border: 2px solid var(--gold);
+  background-color: var(--gold);
+}
+main>#order>#options>#optChamps>#champGrid>div>.positionGrid>.selected>img{
+  filter: grayscale(1) brightness(200%);
+}
+main>#order>#options>#optChamps>#champGrid>div>.positionGrid>div>img{
+  width: 40px;
+  height: 40px;
+}
+main>#order>#options>#optChamps>#champGrid>div>select{
+  padding: 12px;
+  width: 80%;
+  margin: 10px 0 30px 10%;
+  border-radius: 4px;
+  border: 2px solid var(--darkgrey);
+  background-color: var(--darkgrey);
+  font-size: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+main>#order>#checkout{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: var(--darkgrey);
+}
+main>#order>#checkout>h1{
+  margin: 20px 0 0 0;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+main>#order>#checkout>#yourOrder{
+  display: grid;
+  grid-template-columns: 2fr 4fr 3fr 4fr 2fr;
+  height: 100px;
+}
+main>#order>#checkout>#yourOrder>.lineLeft,
+main>#order>#checkout>#yourOrder>.lineRight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main>#order>#checkout>#yourOrder>.lineLeft>div{
+  width: 80%;
+  margin-left: 20%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: white;
+}
+main>#order>#checkout>#yourOrder>.lineRight>div{
+  width: 80%;
+  margin-right: 20%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: white;
+}
+main>#order>#checkout>#yourOrder>.arrow{
+  background-image: url("Images/iconArrow.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1);
+  transform: scaleY(0.6);
+}
+main>#order>#checkout>#yourOrder>#startRank{
+  background-image: url("Ranks/bronze1.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main>#order>#checkout>#yourOrder>#endRank{
+  background-image: url("Ranks/gold4.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main>#order>#checkout>#estimatedTime{
+  text-align: center;
+  margin: 5px 0 10px 0;
+}
+main>#order>#checkout>#estimatedTime>span{
+  font-weight: 900;
+  margin-left: 5px;
+}
+main>#order>#checkout>.toggleContainer{
+  width: 100%;
+  height: 40px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+}
+main>#order>#checkout>.toggleContainer>.percentage{
+  color: var(--gold);
+  font-weight: 900;
+  font-size: 12px;
+  margin-top: -6px;
+  margin: -4px 0 0 4px;
+}
+main>#order>#checkout>.toggleContainer>.info{
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  color: var(--grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: relative;
+}
+main>#order>#checkout>.toggleContainer>.info::before{
+  content: attr(data-tool-tip);
+  position: absolute;
+  width: 250px;
+  margin-left: -125px;
+  padding: 10px;
+  bottom: -30px;
+  left: 0px;
+  transform: scale(0);
+  transition:
+    transform ease-out 150ms,
+    bottom ease-out 150ms;
+  background: var(--black);
+  color: white;
+  font-size: 16px;
+  font-weight: 100;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  pointer-events: none;
+}
+main>#order>#checkout>.toggleContainer>.info:hover::before{
+  transform: scale(1);
+  bottom: 25px;
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch{
+  background-color: grey;
+  width: 50px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+  position: relative;
+  transition: .5s;
+  cursor: pointer;
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch>.switch{
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .5s;
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch>.switchOn{
+  left: calc(100% - 2px - 14px);
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch>.switchOff{
+  left: 2px;
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch>.optionOn{
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 7px);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: .5s;
+  color: var(--black);
+}
+main>#order>#checkout>.toggleContainer>.toggleSwitch>.optionOff{
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 7px);
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: .5s;
+}
+main>#order>#checkout>#priceGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 10px 20px;
+}
+main>#order>#checkout>#priceGrid>#text{
+  font-size: 20px;
+}
+main>#order>#checkout>#priceGrid>#priceText{
+  text-align: right;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+main>#order>#checkout>#btnPurchase{
+  width: 90%;
+  margin: 10px 5%;
+  height: 60px;
+  line-height: 56px;
+  border-radius: 4px;
+  border: 2px solid var(--blue);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--black);
+  color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  transition: 0.5s;
+}
+main>#order>#checkout>#btnPurchase:hover{
+  background-color: var(--blue);
+  color: var(--black);
+  font-size: 25px;
+}
+main>#order>#checkout>#paymentMethods{
+  height: 30px;
+  width: 90%;
+  margin-left: 5%;
+  background-image: url("Images/paymentMethods.png");
+  background-size: cover;
+  background-position: bottom;
+}

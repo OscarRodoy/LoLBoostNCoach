@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+:root{
+  --headerHeight: 65px;
+  --beige: #b3a681;
+  --lightbeige: #dfd5c4;
+  --blue: #59EBFC;
+  --magenta: #D124A0;
+  --purple: #9821A5;
+  --darkblue: #2F3493;
+  --gold: #b28936;
+  --black: #000511;
+
+  --white: #edf0f1;
+  --lightgrey: #434343;
+  --grey: #343434;
+  --darkgrey: #232323;
+  --secondary: #ff0000; /* ffA500*/
+}
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  overflow-x: hidden;
+  background-color: var(--black);
+}
+body::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+body::-webkit-scrollbar-track{
+  background-color: black;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #1e2328;
+  border-radius: 4px;
+}
+/* ---------------------------------------------------------------- Navigation ---------------------------------------------------------------- */
+header>nav{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: 100vw;
+  height: var(--headerHeight);
+  background-color: var(--black);
+  padding: 0 35px 0 25px;
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+header>nav>#logo>p{
+  line-height: var(--headerHeight);
+  color: var(--lightbeige);
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+}
+header>nav>#btns{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header>nav>#btns>div{
+  position: relative;
+  color: var(--beige);
+  line-height: var(--headerHeight);
+  height: var(--headerHeight);
+  padding: 0 25px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+header>nav>#btns>div:hover{
+  color: var(--lightbeige);
+}
+header>nav>#btns>.active{
+  color: var(--lightbeige);
+}
+header>nav>#btns>.active::before{
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("Images/navbarCurrent.png");
+  background-size: cover;
+  background-position: center;
+  width: 16px;
+  height: 10px;
+}
+header>nav>#btns>.active::after{
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(at bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.005),
+    transparent
+  );
+  width: 120%;
+  height: 20px;
+}
+/* ---------------------------------------------------------------- Footer ---------------------------------------------------------------- */
+footer{
+  position: relative;
+  height: 50vh;
+  background-color: black;
+}
+footer::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  background: linear-gradient(to bottom, var(--black) 0%, rgba(0,0,0,0) 100%);
+}

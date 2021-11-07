@@ -10,23 +10,24 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
   <head>
     <meta charset="utf-8">
     <title>LoL Boost & Coach</title>
-    <link rel="stylesheet" href="league.css">
-    <link rel="stylesheet" href="CarousellScrolling.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="carousellScrolling.css">
     <link rel="icon" type="image/png" href="Images/logo.png">
   </head>
   <body>
     <header>
       <div id="headerIMG"></div>
       <nav>
-        <div id="logo">
+        <div onclick="home(); select(this);" id="logo">
           <p>LoL Boost & Coach</p>
         </div>
         <div id="btns">
-          <div onclick="select(this)" class="navBtns active">Home</div>
-          <div onclick="select(this)" class="navBtns">About</div>
-          <div onclick="select(this)" class="navBtns">Reviews</div>
-          <div onclick="select(this)" class="navBtns">Boosting</div>
-          <div onclick="select(this)" class="navBtns">Coaching</div>
+          <div onclick="select(this); home();" class="navBtns active">Home</div>
+          <div onclick="select(this); about();" class="navBtns dontActivate">About</div>
+          <div onclick="select(this); reviews();" class="navBtns dontActivate">Reviews</div>
+          <div onclick="select(this); boosting();" class="navBtns">Boosting</div>
+          <div onclick="select(this); coaching();" class="navBtns">Coaching</div>
           <div onclick="select(this)" class="navBtns">Profile</div>
         </div>
       </nav>
@@ -34,8 +35,8 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
         <h1>LoL Boost & Coach</h1>
         <p>Wave Goodbye to Elo Hell today and get your desired rank with our <span>Fast & Cheap</span> League of Legends Elo boosting done by Professionals with over 5 years in the industry</p>
         <div id="btnContainer">
-          <div id="btnPrices">Check Our Prices</div>
-          <div id="btnCoaches">Meet Our Coaches</div>
+          <div onclick="boosting()" id="btnPrices">Check Our Prices</div>
+          <div onclick="coaching()" id="btnCoaches">Meet Our Coaches</div>
         </div>
       </div>
     </header>
@@ -72,22 +73,22 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
       <div id="services">
         <div id="servicesIMG"></div>
         <div id="boosting">
-          <h1>How Boosting Works</h1>
+          <h1>How <span>Boosting</span> Works</h1>
           <div class="divStep counterreset"><p>Click on "Calculate Your Price"</p></div>
           <div class="divStep"><p>Select your current and desired rank, LP gain, and champion prefrences</p></div>
           <div class="divStep"><p>Use one of our payment methods</p></div>
           <div class="divStep"><p>Your booster starts playing immediately and you can track the progress through Discord</p></div>
           <div class="divStep"><p>Enjoy your boosted account!</p></div>
-          <div id="btnBoosting">Calculate Your Price</div>
+          <div onclick="boosting()" id="btnBoosting">Calculate Your Price</div>
         </div>
         <div id="coaching">
-          <h1>How Coaching Works</h1>
+          <h1>How <span>Coaching</span> Works</h1>
           <div class="divStep counterreset"><p>Click on "Meet Our Coaches"</p></div>
           <div class="divStep"><p>Pick a coach and select how long you want your session to be</p></div>
           <div class="divStep"><p>Use one of our payment methods</p></div>
           <div class="divStep"><p>You will instantly get in touch with your coach on Discord where you can book a time that works for you</p></div>
           <div class="divStep"><p>Enjoy your new improved self!</p></div>
-          <div id="btnCoaching">Meet Our Coaches</div>
+          <div onclick="coaching()" id="btnCoaching">Meet Our Coaches</div>
         </div>
       </div>
       <div id="reviews">
@@ -105,7 +106,7 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
       <!-- Content, Contact, emaillist inp, trademark, refund policy, TOS, cookie policy  -->
 
     </footer>
-    <script src="league.js"></script>
-    <script src="CarousellScrolling.js"></script>
+    <script src="common.js"></script>
+    <script src="carousellScrolling.js"></script>
   </body>
 </html>

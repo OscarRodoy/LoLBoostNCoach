@@ -5,6 +5,7 @@
     <title>LoL Boost & Coach - Boosting</title>
     <link rel="stylesheet" href="boosting.css">
     <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="carousellScrolling.css">
     <link rel="icon" type="image/png" href="Images/logo.png">
   </head>
   <body>
@@ -49,7 +50,7 @@
                 </select>
               </div>
               <div id="spellOrder">
-                <p>Spell Order <span>(optional)</span></p>
+                <p>Spell Order</p>
                 <select onchange="changeSpellOrder()" id="selectSpellOrder">
                   <option>Doesn't matter</option>
                   <option>D-Flash</option>
@@ -237,11 +238,22 @@
           <div id="paymentMethods"></div>
         </div>
       </div>
+      <div id="reviews">
+        <h1 class="CarousellHeadline">What Our Customers Says</h1>
+        <div id="CarousellBar_1" class="CarousellBar"> <!-- ID = jS | Class = CSS -->
+          <section onclick="next('L', '1')" id="btnNext_L1" class="btnNext btnNextL"> <section></section> <section></section> </section>
+          <section onclick="next('R', '1')" id="btnNext_R1" class="btnNext btnNextR"> <section></section> <section></section> </section>
+          <div class="divContainer">
+            <div id="divContent_1" class="divContent"></div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
 
     </footer>
     <script src="common.js"></script>
     <script src="boosting.js"></script>
+    <script src="carousellScrolling.js"></script>
   </body>
 </html>

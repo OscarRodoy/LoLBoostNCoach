@@ -1,7 +1,4 @@
 <!--
-header
-promises
-calc price / meet our coaches
 https://leagueoflegends.fandom.com/wiki/Rank_(League_of_Legends)
 https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_Levelup.png
 -->
@@ -19,30 +16,33 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
     <header>
       <div id="headerIMG"></div>
       <nav>
-        <div onclick="home(); select(this);" id="logo">
+        <div onclick="home()" id="logo">
           <p>LoL Boost & Coach</p>
         </div>
         <div id="btns">
-          <div onclick="select(this); home();" class="navBtns active">Home</div>
-          <div onclick="select(this); about();" class="navBtns dontActivate">About</div>
-          <div onclick="select(this); reviews();" class="navBtns dontActivate">Reviews</div>
-          <div onclick="select(this); boosting();" class="navBtns">Boosting</div>
-          <div onclick="select(this); coaching();" class="navBtns">Coaching</div>
-          <div onclick="select(this)" class="navBtns">Profile</div>
+          <div onclick="home()" class="active">Home</div>
+          <div onclick="about()">About</div>
+          <div onclick="reviews()">Reviews</div>
+          <div onclick="boosting()">Boosting</div>
+          <div onclick="coaching()">Coaching</div>
+          <div onclick="">Profile</div>
         </div>
         <div id="btns2">
-          <div onclick="select(this); home();" class="navBtns active">Home</div>
-          <div onclick="select(this); boosting();" class="navBtns">Boosting</div>
-          <div onclick="select(this); coaching();" class="navBtns">Coaching</div>
-          <div class="dropDown">
-            <div class="icon"></div>
-            <div onclick="select(this); about();" class="dropBtns dontActivate">About</div>
-            <div onclick="select(this); reviews();" class="dropBtns dontActivate">Reviews</div>
-            <div onclick="select(this)" class="dropBtns">Profile</div>
+          <div id="dropDownMenu">
+            <div id="container">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div id="content">
+              <div onclick="home()" class="active">Home</div>
+              <div onclick="about()">About</div>
+              <div onclick="reviews()">Reviews</div>
+              <div onclick="boosting()">Boosting</div>
+              <div onclick="coaching()">Coaching</div>
+              <div onclick="" class="navBtns">Profile</div>
+            </div>
           </div>
-        </div>
-        <div id="btns3">
-
         </div>
       </nav>
       <div id="headerContent">
@@ -61,12 +61,12 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
           <h1>Got any questions?</h1>
           <p>We value your safety and are always looking for ways to best take care of our customers.
              Therefore, we offer a Free Live Call with any of our friendly and professional agends to discuss any questions you might have.</p>
-          <div id="btnLiveCall">Message Us On Discord &emsp; &ensp;<img src="Images/iconDiscord.png"></div>
+          <div id="btnLiveCall"><p>Message Us On Discord</p><!--&emsp; &ensp;--><img src="Images/iconDiscord.png"></div>
         </div>
         <div style="background: rgba(0, 0, 139, 0.2);">
           <img src="Images/iconTank.png">
           <h1>Secure payment</h1>
-          <p>We offer safe payment options like PayPal and an easy-to go checkout process where all you necessitate to do is customize your boosting order to adequately fit your needs.</p>
+          <p>We offer safe payment options like PayPal and an easy-to go checkout process where all you need to do is customize your boosting or coaching order to adequately fit your desires.</p>
         </div>
         <div style="background: rgba(209, 36, 160, 0.2)">
           <img src="Images/iconMage.png">
@@ -81,7 +81,7 @@ https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_L
         <div style="background: rgba(245, 159, 226, 0.2)">
           <img src="Images/iconFighter.png">
           <h1>Champ Prefrence</h1>
-          <p>Choose the Champions and Roles you prefer and we will play them as often as possible.</p>
+          <p>Choose the Champions, Roles and Summoner Spells you prefer and we will play them as often as possible throughout the boosting process.</p>
         </div>
       </div>
       <div id="services">

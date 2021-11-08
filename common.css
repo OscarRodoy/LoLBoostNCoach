@@ -22,6 +22,9 @@
   padding: 0px;
   font-family: 'Montserrat', sans-serif;
 }
+html{
+  scroll-behavior: smooth;
+}
 body{
   overflow-x: hidden;
   background-color: var(--black);
@@ -57,14 +60,74 @@ header>nav>#logo>p{
   font-size: 20px;
   text-align: center;
 }
+header>nav>#btns2{
+  display: none;
+}
+header>nav>#btns2>#dropDownMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: var(--headerHeight);
+}
+header>nav>#btns2>#dropDownMenu>#container{
+  display: block;
+}
+header>nav>#btns2>#dropDownMenu>#container>div{
+  width: 40px;
+  height: 6px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 3px;
+  transition: .5s;
+}
+header>nav>#btns2>#dropDownMenu>#content{
+  display: none;
+  position: absolute;
+  right: 0;
+  top: var(--headerHeight);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+header>nav>#btns2>#dropDownMenu>#content>div{
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  background-color: var(--black);
+  color: var(--beige);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 100;
+  text-align: center;
+}
+header>nav>#btns2>#dropDownMenu>#content>div:hover{
+  color: black;
+  background-color: white;
+}
+header>nav>#btns2>#dropDownMenu:hover>#content{
+  display: block;
+}
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(1){
+  background-color: var(--gold);
+  transform: rotate(45deg);
+  margin-bottom: -11px;
+}
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(2){
+  transform: scale(0);
+}
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(3){
+  background-color: var(--gold);
+  transform: rotate(-45deg);
+  margin-top: -11px;
+}
+header>nav>#btns2>#dropDownMenu>#content:hover{
+  display: block;
+}
 header>nav>#btns{
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-header>nav>#btns2,
-header>nav>#btns3{
-  display: none;
 }
 header>nav>#btns>div{
   position: relative;
@@ -112,7 +175,18 @@ header>nav>#btns>.active::after{
   height: 20px;
 }
 @media only screen and (max-width: 960px){
-
+  header>nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px 0 50px;
+  }
+  header>nav>#btns{
+    display: none;
+  }
+  header>nav>#btns2{
+    display: block;
+  }
 }
 /* ---------------------------------------------------------------- Footer ---------------------------------------------------------------- */
 footer{

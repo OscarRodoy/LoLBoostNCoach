@@ -18,7 +18,7 @@ header>#headerIMG{
 }
 header>#headerContent{
   position: absolute;
-  top: 50%;
+  top: calc(50% + var(--headerHeight)/2);
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
@@ -40,7 +40,7 @@ header>#headerContent>p>span{
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-size: 400% 400%;
   animation: 8s linear infinite Gradient;
 }
@@ -86,22 +86,50 @@ header>#headerContent>#btnContainer>#btnCoaches:hover{
   background-color: white;
   color: black;
 }
-/* ---------------------------------------------------------------- Promises ---------------------------------------------------------------- */main{
+@media only screen and (max-width: 1020px){
+  header>#headerContent{
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 850px){
+  header>#headerContent{
+    width: 70%;
+  }
+  header>#headerContent>p{
+    font-size: 18px;
+  }
+  header>#headerContent>#btnContainer>div{
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 730px){
+  header>#headerContent{
+    width: 80%;
+  }
+  header>#headerContent>p{
+    font-size: 16px;
+  }
+  header>#headerContent>#btnContainer>div{
+    font-size: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------- Promises ---------------------------------------------------------------- */
+main{
   background-color: var(--black);
 }
 main>#promises{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 96vh;
-  width: 96vw;
-  margin: 2vh 2vw;
+  grid-gap: 35px;
+  width: calc(100vw - 70px);
+  margin: 35px;
 }
 main>#promises>div{
-  margin: 4%;
   color: white;
-  border-radius: 4px;
-  height: 42vh;
   text-align: center;
+  border-radius: 4px;
+  padding-bottom: 20px;
 }
 main>#promises>div>img{
   width: 50px;
@@ -113,27 +141,25 @@ main>#promises>div>h1{
   font-size: 25px;
   color: white;
 }
-main>#promises>#discord{
-  margin: 2%;
-  grid-column: 1 / 3;
-}
 main>#promises>div>p{
   color: var(--lightbeige);
   line-height: 25px;
-  margin: 15px 5% 10px 5%;
+  margin: 15px 5% 15px 5%;
+}
+main>#promises>#discord{
+  grid-column: 1 / 3;
 }
 main>#promises>#discord>#btnLiveCall{
   position: relative;
-  display: inline-block;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--darkblue);
+  margin-left: 50%;
+  transform: translateX(-50%);
   width: 45%;
   height: 50px;
-  line-height: 46px;
   border-radius: 4px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
   border: 2px solid rgba(255, 255, 255, 0);
   cursor: pointer;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -142,20 +168,47 @@ main>#promises>#discord>#btnLiveCall{
 main>#promises>#discord>#btnLiveCall:hover{
   filter: invert(1);
 }
+main>#promises>#discord>#btnLiveCall>p{
+  color: white;
+  line-height: 46px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+}
 main>#promises>#discord>#btnLiveCall>img{
-  position: absolute;
-  top: 6px;
-  right: 32px;
   width: 34px;
   height: 34px;
   filter: invert(1);
+}
+@media only screen and (max-width: 1100px){
+  main>#promises>#discord>#btnLiveCall{
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 960px){
+  main>#promises{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 650px){
+  main>#promises>#discord>#btnLiveCall{
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 600px){
+  main>#promises{
+    grid-template-columns: 1fr;
+  }
+  main>#promises>#discord{
+      grid-column: 1 / 2;
+  }
 }
 /* ---------------------------------------------------------------- Services ---------------------------------------------------------------- */
 main>#services{
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
   width: 100vw;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -163,7 +216,7 @@ main>#services>#servicesIMG{
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url("Images/servicesIMG.jpeg");
   background-size: cover;
@@ -229,7 +282,7 @@ main>#services>div>.divStep>p{
 main>#services>div>#btnBoosting, #btnCoaching{
   width: 50%;
   margin: 40px 25%;
-  height: 60px;
+  min-height: 60px;
   line-height: 60px;
   border-radius: 4px;
   text-align: center;
@@ -249,4 +302,17 @@ main>#services>div>#btnCoaching{
 }*/
 main>#services>div>#btnBoosting:hover, #btnCoaching:hover{
   filter: invert(1);
+}
+@media only screen and (max-width: 1000px){
+  main>#services>div>.divStep{
+    min-height: 80px;
+  }
+}
+@media only screen and (max-width: 870px){
+  main>#services>div>.divStep{
+    min-height: 60px;
+  }
+  main>#services{
+    grid-template-columns: 1fr;
+  }
 }

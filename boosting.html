@@ -11,16 +11,33 @@
   <body>
     <header>
       <nav>
-        <div onclick="home(); select(this);" id="logo">
+        <div onclick="home()" id="logo">
           <p>LoL Boost & Coach</p>
         </div>
         <div id="btns">
-          <div onclick="select(this); home();" class="navBtns">Home</div>
-          <div onclick="select(this); about();" class="navBtns dontActivate">About</div>
-          <div onclick="select(this); reviews();" class="navBtns dontActivate">Reviews</div>
-          <div onclick="select(this); boosting();" class="navBtns active">Boosting</div>
-          <div onclick="select(this); coaching();" class="navBtns">Coaching</div>
-          <div onclick="select(this)" class="navBtns">Profile</div>
+          <div onclick="home()">Home</div>
+          <div onclick="about()">About</div>
+          <div onclick="reviews()">Reviews</div>
+          <div onclick="boosting()" class="active">Boosting</div>
+          <div onclick="coaching()">Coaching</div>
+          <div onclick="">Profile</div>
+        </div>
+        <div id="btns2">
+          <div id="dropDownMenu">
+            <div id="container">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div id="content">
+              <div onclick="home()">Home</div>
+              <div onclick="about()">About</div>
+              <div onclick="reviews()">Reviews</div>
+              <div onclick="boosting()" class="active">Boosting</div>
+              <div onclick="coaching()">Coaching</div>
+              <div onclick="" class="navBtns">Profile</div>
+            </div>
+          </div>
         </div>
       </nav>
       <div id="headerContent">
@@ -53,7 +70,7 @@
                   <option>Flex</option>
                 </select>
               </div>
-              <div id="spellOrder">
+              <div id="spellOrder" class="notActivated" onmouseover="notifySpell()">
                 <p>Spell Order</p>
                 <select onchange="changeSpellOrder()" id="selectSpellOrder">
                   <option>Doesn't matter</option>
@@ -119,12 +136,12 @@
               <div id="LPgain">
                 <p>LP Gain</p>
                 <select onchange="changeLPgain()" id="selectLPgain">
-                  <option>>10</option>
+                  <option>-10</option>
                   <option>10-15</option>
                   <option>16-18</option>
                   <option>19-22</option>
                   <option>23-25</option>
-                  <option>25<</option>
+                  <option>25+</option>
                 </select>
               </div>
             </div>
@@ -136,7 +153,7 @@
               <div class="line"></div>
             </div>
             <!-- <h1 class="orderStep">Champion Prefrences</h1> -->
-            <div id="champGrid">
+            <div id="champGrid" class="notActivated" onmouseover="notifyChamp()">
               <div id="primary">
                 <p>Primary Position</p>
                 <div class="positionGrid">
@@ -205,8 +222,8 @@
             <p class="percentage">+15%</p>
             <div class="info" data-tool-tip="The booster will not play with another booster">i</div>
           </div>
-          <div class="toggleContainer">
-            <div class="toggleSwitch" onclick="toggleSwitch(this, '3')">
+          <div class="toggleContainer" id="toggleChampDiv">
+            <div class="toggleSwitch" onclick="toggleSwitch(this, '3'); champPrefOn();">
               <div class="switch switchOff"></div>
               <div class="optionOn">On</div>
               <div class="optionOff">Off</div>
@@ -215,13 +232,13 @@
             <p class="percentage">+20%</p>
             <div class="info" data-tool-tip="Choose which champions your booster shall play">i</div>
           </div>
-          <div class="toggleContainer">
-            <div class="toggleSwitch" onclick="toggleSwitch(this, '4')">
+          <div class="toggleContainer" id="toggleSpellDiv">
+            <div class="toggleSwitch" onclick="toggleSwitch(this, '4'); spellPrefOn();">
               <div class="switch switchOff"></div>
               <div class="optionOn">On</div>
               <div class="optionOff">Off</div>
             </div>
-            <p class="desc">Summoner Spells Pref.</p>
+            <p class="desc">Spell Order Prefrences</p>
             <p class="percentage">+5%</p>
           </div>
           <div class="toggleContainer">

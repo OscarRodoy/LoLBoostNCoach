@@ -176,7 +176,60 @@ function changePos2(elm, pos){
   elm.classList.add("selected");
   pos2 = pos;
 };
-
+// prefrences on / off
+var spellOrderDiv = document.getElementById("spellOrder");
+var spellPref = false;
+function spellPrefOn(){
+  spellPref = !spellPref;
+  if (spellPref){
+    spellOrderDiv.classList.remove("notActivated");
+    // spellOrderDiv.scrollIntoView(false);
+    spellOrderDiv.scrollIntoView({
+      behavior: 'auto',
+      block: 'center',
+      inline: 'center'
+    });
+  } else {
+    spellOrderDiv.classList.add("notActivated");
+  };
+};
+var toggleSpellDiv = document.getElementById("toggleSpellDiv");
+toggleSpellDiv.style.transition = "0.2s";
+function notifySpell(){
+  if (spellOrderDiv.classList.contains("notActivated")){
+    toggleSpellDiv.style.marginLeft = "25px";
+    setTimeout(function(){
+      toggleSpellDiv.style.marginLeft = "15px";
+      setTimeout(function(){
+        toggleSpellDiv.style.marginLeft = "20px";
+      }, 190);
+    }, 190);
+  };
+};
+var champGrid = document.getElementById("champGrid");
+var champPref = false;
+function champPrefOn(){
+  champPref = !champPref;
+  if (champPref){
+    champGrid.classList.remove("notActivated");
+    champGrid.scrollIntoView(false);
+  } else {
+    champGrid.classList.add("notActivated");
+  };
+};
+var toggleChampDiv = document.getElementById("toggleChampDiv");
+toggleChampDiv.style.transition = "0.2s";
+function notifyChamp(){
+  if (champGrid.classList.contains("notActivated")){
+    toggleChampDiv.style.marginLeft = "25px";
+    setTimeout(function(){
+      toggleChampDiv.style.marginLeft = "15px";
+      setTimeout(function(){
+        toggleChampDiv.style.marginLeft = "20px";
+      }, 190);
+    }, 190);
+  };
+};
 // checkout
 var percentageList = [1.05, 1.10, 1.15, 1.20, 1.05, 1.05];
 var toggleList = [false, false, false, false, false, false];
@@ -187,7 +240,7 @@ function toggleSwitch(elm, num) {
     elm.childNodes[1].classList.remove("switchOff");
     elm.childNodes[3].style.opacity = 1;
     elm.childNodes[5].style.opacity = 0;
-    elm.style.background = "var(--gold)";
+    elm.style.background = "var(--blue)";
   } else {
     elm.childNodes[1].classList.remove("switchOn");
     elm.childNodes[1].classList.add("switchOff");
@@ -197,7 +250,7 @@ function toggleSwitch(elm, num) {
   };
   updatePrice();
 };
-var lpGainList = [1.15, 1.10, 1, 0.95, 0.90, 0.80];
+var lpGainList = [1.40, 1.10, 1, 0.95, 0.90, 0.80];
 var divList = [4, 3, 2, 1];
 var priceList = [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 11.5, 13, 14.5, 16, 17.5, 20, 35, 60, 100, 150];
 var estimatedTime = document.getElementById("estimatedTime");

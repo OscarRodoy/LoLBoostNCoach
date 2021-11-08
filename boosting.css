@@ -119,6 +119,13 @@ main>#order>#options>#optBasics>div>div>select{
   outline: none;
   cursor: pointer;
 }
+main>#order>#options>#optBasics>div>.notActivated{
+  filter: brightness(70%) blur(1px);
+  cursor: not-allowed;
+}
+main>#order>#options>#optBasics>div>.notActivated>select{
+  pointer-events: none;
+}
 main>#order>#options>#optRanks>#rankGrid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -268,6 +275,14 @@ main>#order>#options>#optRanks>#LP>div>select{
 main>#order>#options>#optChamps>#champGrid{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  transition: 0.5s;
+}
+main>#order>#options>#optChamps>.notActivated{
+  filter: brightness(70%) blur(1px);
+  cursor: not-allowed;
+}
+main>#order>#options>#optChamps>.notActivated>div{
+  pointer-events: none;
 }
 main>#order>#options>#optChamps>#champGrid>div>p{
   font-size: 18px;
@@ -400,7 +415,7 @@ main>#order>#checkout>.toggleContainer{
   margin-left: 20px;
 }
 main>#order>#checkout>.toggleContainer>.percentage{
-  color: var(--gold);
+  color: var(--blue);
   font-weight: 900;
   font-size: 12px;
   margin-top: -6px;
@@ -410,7 +425,7 @@ main>#order>#checkout>.toggleContainer>.info{
   width: 16px;
   height: 16px;
   margin-left: 4px;
-  background-color: var(--gold);
+  background-color: var(--blue);
   border-radius: 50%;
   color: var(--grey);
   display: flex;
@@ -426,7 +441,7 @@ main>#order>#checkout>.toggleContainer>.info::before{
   content: attr(data-tool-tip);
   position: absolute;
   width: 250px;
-  margin-left: -125px;
+  margin-left: -225px;
   padding: 10px;
   bottom: -30px;
   left: 0px;
@@ -439,7 +454,7 @@ main>#order>#checkout>.toggleContainer>.info::before{
   font-size: 16px;
   font-weight: 100;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border: 2px solid var(--gold);
+  border: 2px solid var(--blue);
   border-radius: 4px;
   pointer-events: none;
 }
@@ -507,7 +522,7 @@ main>#order>#checkout>#priceGrid>#priceText{
   font-size: 25px;
   font-weight: 900;
   letter-spacing: 2px;
-  color: var(--gold);
+  color: var(--blue);
   white-space: nowrap;
 }
 main>#order>#checkout>#btnPurchase{
@@ -578,6 +593,9 @@ main>#order>#checkout>#paymentMethods{
     min-width: 325px;
     background-color: var(--darkgrey);
     min-height: 591px;
+  }
+  main>#order>#checkout>.toggleContainer>.info::before{
+    margin-left: -125px;
   }
   main>#order>#options>#optChamps>#champGrid>div>select{
     margin-bottom: 30px;

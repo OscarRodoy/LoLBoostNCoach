@@ -6,11 +6,11 @@ header{
 header>#headerIMG{
   position: absolute;
   top: var(--headerHeight);
-  left: 0;
-  background-image: url("Images/headerIMG.jpg");
+  left: -90px;
+  background-image: url("Images/headerIMG2.jpg");
   background-size: cover;
-  background-position: center;
-  width: 100vw;
+  background-position: top;
+  width: calc(100vw + 90px);
   height: calc(100vh - var(--headerHeight));
   filter: grayscale(10%) brightness(25%) hue-rotate(195deg);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -27,6 +27,7 @@ header>#headerContent>h1{
   color: white;
   font-weight: 700;
   font-size: 50px;
+  font-size: 4vw;
   text-align: center;
 }
 header>#headerContent>p{

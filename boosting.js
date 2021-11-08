@@ -158,8 +158,8 @@ function changeChamp2(){
     champ2 = previous;
   };
 };
-var pos1 = "fill";
-var pos2 = "top";
+var pos1 = "top";
+var pos2 = "fill";
 function changePos1(elm, pos){
   if (pos == pos2) {return; };
   for (var i = 1; i <= 11; i+=2){

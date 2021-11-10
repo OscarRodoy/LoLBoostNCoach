@@ -255,7 +255,7 @@
             <div id="text">Total Price:</div>
             <div id="priceText"></div>
           </div>
-          <div id="btnPurchase">Purchase Now</div>
+          <div onclick="openPurchase()" id="btnPurchase">Purchase Now</div>
           <div id="paymentMethods"></div>
         </div>
       </div>
@@ -270,6 +270,36 @@
         </div>
       </div>
     </main>
+    <div id="purchaseDiv">
+      <div id="orderSummary">
+        <img src="Images/logo.png">
+        <p>Order Summary</p>
+        <table>
+          <tr><td>Server:</td><td id="tdServer"></td></tr>
+          <tr><td>Queue:</td><td id="tdQueue"></td></tr>
+          <tr><td>Current Rank:</td><td id="tdCurrentRank"></td></tr>
+          <tr><td>Desired Rank:</td><td id="tdDesiredRank"></td></tr>
+          <tr><td>Desired LP:</td><td id="tdDesiredLP"></td></tr>
+          <tr><td>Current LP:</td><td id="tdCurrentLP"></td></tr>
+          <tr><td>LP Gain:</td><td id="tdLPgain"></td></tr>
+          <tr><td>Priority Order:</td><td id="tdPriorityOrder"></td></tr>
+          <tr><td>Normalize Score:</td><td id="tdNormalizeScore"></td></tr>
+          <tr><td>Solo Queue Only:</td><td id="tdSoloQueueOnly"></td></tr>
+          <tr><td>Champ Prefrences:</td><td id="tdChampPrefrences"></td></tr>
+          <tr><td>Primary Champ:</td><td id="tdPrimaryChamp"></td></tr>
+          <tr><td>Secondary Champ:</td><td id="tdSecondaryChamp"></td></tr>
+          <tr><td>Spell Order Prefrences:</td><td id="tdSpellOrderPrefrences"></td></tr>
+          <tr><td>Spell Order:</td><td id="tdSpellOrder"></td></tr>
+          <tr><td>Extra Bonus Win:</td><td id="tdExtraBonusWin"></td></tr>
+        </table>
+        <div onclick="closePurchase()" id="btnEditOrder"> << Edit Order</div>
+      </div>
+      <div id="paymentDiv">
+        <img src="Images/logo.png">
+        <p>Choose a Payment Method</p>
+        <div id="paypal"></div>
+      </div>
+    </div>
     <footer>
 
     </footer>

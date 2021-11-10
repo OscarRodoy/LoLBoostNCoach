@@ -272,16 +272,74 @@ function updatePrice(){
   };
   price -= priceList[startNum-1] * (lpCurrent / 5);
   price *= lpGainList[lpGain];
+  var percentage = 1.00;
   for (var i = 0; i < percentageList.length; i++){
     if (toggleList[i]){
-      price *= percentageList[i];
+      percentage += percentageList[i]-1;
     };
   };
+  price *= percentage;
   priceText.innerHTML = `${price.toFixed(2)}€`;
   var time = endNum - startNum;
   estimatedTime.innerHTML = `Estimated Completion Time: <span>${time} Days</span>`;
 }; updatePrice();
 
+var purchaseDiv = document.getElementById("purchaseDiv");
+var tdServer = document.getElementById("tdServer");
+var tdQueue = document.getElementById("tdQueue");
+var tdCurrentRank = document.getElementById("tdCurrentRank");
+var tdDesiredRank = document.getElementById("tdDesiredRank");
+var tdDesiredLP = document.getElementById("tdDesiredLP");
+var tdCurrentLP = document.getElementById("tdCurrentLP");
+var tdLPgain = document.getElementById("tdLPgain");
+var tdPriorityOrder = document.getElementById("tdPriorityOrder");
+var tdNormalizeScore = document.getElementById("tdNormalizeScore");
+var tdSoloQueueOnly = document.getElementById("tdSoloQueueOnly");
+var tdChampPrefrences = document.getElementById("tdChampPrefrences");
+var tdPrimaryChamp = document.getElementById("tdPrimaryChamp");
+var tdSecondaryChamp = document.getElementById("tdSecondaryChamp");
+var tdSpellOrderPrefrences = document.getElementById("tdSpellOrderPrefrences");
+var tdSpellOrder = document.getElementById("tdSpellOrder");
+var tdExtraBonusWin = document.getElementById("tdExtraBonusWin");
+function openPurchase(){
+  document.querySelector("main").style.filter = "blur(2px) grayscale(100%)";
+  document.querySelector("main").style.pointerEvents = "none";
+  document.querySelector("nav").style.filter = "blur(2px) grayscale(100%)";
+  document.querySelector("nav").style.pointerEvents = "none";
+  purchaseDiv.style.display = "grid";
+  tdServer.innerHTML = `${server}`;
+  tdQueue.innerHTML = `${queue}`;
+  tdCurrentRank.innerHTML = `${currentRank} ${currentDiv}`;
+  if (desiredRank != "Master"){
+    tdDesiredRank.innerHTML = `${desiredRank} ${desiredDiv}`;
+  } else {
+    tdDesiredRank.innerHTML = `${desiredRank}`;
+  };
+  tdDesiredLP.innerHTML = `${inpDesiredLP.value}`;
+  if (desiredRank != "Master") { tdDesiredLP.innerHTML = "-"; };
+  tdCurrentLP.innerHTML = `${lpCurrent}`;
+  tdLPgain.innerHTML = `${lpGain}`;
+  tdPriorityOrder.innerHTML = `${toggleList[0]}`;
+  tdNormalizeScore.innerHTML = `${toggleList[1]}`;
+  tdSoloQueueOnly.innerHTML = `${toggleList[2]}`;
+  tdChampPrefrences.innerHTML = `${toggleList[3]}`;
+  tdPrimaryChamp.innerHTML = `${champ1} - ${pos1}`;
+  if (!toggleList[3]) { tdPrimaryChamp.innerHTML = "-"; };
+  tdSecondaryChamp.innerHTML = `${champ2} - ${pos2}`;
+  if (!toggleList[3]) { tdSecondaryChamp.innerHTML = "-"; };
+  tdSpellOrderPrefrences.innerHTML = `${toggleList[4]}`;
+  tdSpellOrder.innerHTML = `${spellOrder}`;
+  if (!toggleList[4]) { tdSpellOrder.innerHTML = "-"; };
+  tdExtraBonusWin.innerHTML = `${toggleList[5]}`;
+};
+
+function closePurchase(){
+  document.querySelector("main").style.filter = "blur(0) grayscale(0%)";
+  document.querySelector("main").style.pointerEvents = "all";
+  document.querySelector("nav").style.filter = "blur(0) grayscale(0%)";
+  document.querySelector("nav").style.pointerEvents = "all";
+  purchaseDiv.style.display = "none";
+};
 /* variables:
 currentRank
 currentDiv

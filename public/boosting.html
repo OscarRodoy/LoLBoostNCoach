@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>LoL Boost & Coach - Boosting</title>
     <link rel="stylesheet" href="boosting.css">
     <link rel="stylesheet" href="common.css">
@@ -292,17 +294,131 @@
           <tr><td>Spell Order:</td><td id="tdSpellOrder"></td></tr>
           <tr><td>Extra Bonus Win:</td><td id="tdExtraBonusWin"></td></tr>
         </table>
-        <div onclick="closePurchase()" id="btnEditOrder"> << Edit Order</div>
       </div>
       <div id="paymentDiv">
         <img src="Images/logo.png">
+        <p>Account Details<span>(required)</span></p>
+        <p class="infoText">Make sure you enter the correct information so your assigned booster can boost you. We advice you change password after the boosting is completed!</p>
+        <div class="inpDiv">
+          <p>Account Username:</p>
+          <input id="inpUsername" type="text">
+        </div>
+        <div class="inpDiv">
+          <p>Account Password:</p>
+          <input id="inpPassword" type="password">
+        </div>
+        <div class="inpDiv">
+          <p>Discord Username:</p>
+          <input id="inpDiscord" type="text">
+        </div>
         <p>Choose a Payment Method</p>
         <div id="paypal"></div>
+        <div id="endGrid">
+          <div onclick="closePurchase()" id="btnEditOrder"> << Edit Order</div>
+          <div id="totalDiv"><p id="totalText">Total:</p></div>
+        </div>
       </div>
     </div>
     <footer>
 
     </footer>
+    <script src="https://www.paypal.com/sdk/js?client-id=AW49Kk9lrkEObzn8X0MTnkz7MfhGsUz2A1SgnT5aotI9-1S4ULA6olxNl92t_c7cGkX7B1HjtHgWiiBW&currency=EUR" data-namespace="paypal_sdk"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBDwvMLmyA36_6eVbtL_Ipv1v_tLpQ70g4",
+        authDomain: "testproject2021-43ff5.firebaseapp.com",
+        projectId: "testproject2021-43ff5",
+        storageBucket: "testproject2021-43ff5.appspot.com",
+        messagingSenderId: "903575688391",
+        appId: "1:903575688391:web:c0c64f320b663374459ae2"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc/*, deleteFeild*/ } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+      const db = getFirestore();
+
+      var object = {};
+
+      async function AddDocument_CustomID(){
+        var ref = doc(db, "Orders", String(object.orderStartTime) + " " + String(object.userDetails.name) + " " + String(object.userDetails.surname));
+        const docRef = await setDoc(
+          ref, {
+            object
+          }
+        )
+        .then(()=>{
+          //alert("success")
+        })
+        .catch((error)=>{
+          //alert("failure " + error);
+        });
+      }
+
+      paypal_sdk.Buttons({
+        createOrder: function(data, actions) {
+           return actions.order.create({
+             purchase_units: [{
+               amount: {
+                 value: generateValue(),
+               },
+             },],
+           })
+         },
+         onApprove: function(data, actions){
+           return actions.order.capture().then(function(details) {
+             object = {
+               userDetails: {
+                 name: details.payer.name.given_name,
+                 surname: details.payer.name.surname,
+                 email: details.payer.email_address,
+                 payerId: details.payer.payer_id,
+                 lolUsername: inpUsername.value,
+                 lolPassword: inpPassword.value,
+                 discord: inpDiscord.value,
+               },
+               orderStartTime: getDatetime(),
+               amountPaid: details.purchase_units[0].amount,
+               orderDetails: {
+                 server: server,
+                 queue: queue,
+                 currentRank: currentRank,
+                 currentDiv: currentDiv,
+                 currentLp: lpCurrentValues[lpCurrent],
+                 lpGain: lpGainValues[lpGain],
+                 desiredRank: desiredRank,
+                 desiredDiv: desiredDiv,
+                 desiredLp: inpDesiredLP.value,
+                 priorityOrder: toggleList[0],
+                 normalizeScore: toggleList[1],
+                 soloQueueOnly: toggleList[2],
+                 championPrefrences: toggleList[3],
+                 spellOrderPrefrences: toggleList[4],
+                 extraBonusWin: toggleList[5],
+                 prefrences: {
+                   champ1: champ1,
+                   pos1: pos1,
+                   champ2: champ2,
+                   pos2: pos2,
+                   spellOrder: spellOrder
+                 }
+               }
+             };
+             AddDocument_CustomID()
+             closePurchase()
+             setTimeout(function(){ alert('Transaction completed! \n Thank you ' + details.payer.name.given_name + "!") }, 1000);
+           })
+         },
+       }).render('#paypal');
+    </script>
     <script src="common.js"></script>
     <script src="boosting.js"></script>
     <script src="carousellScrolling.js"></script>

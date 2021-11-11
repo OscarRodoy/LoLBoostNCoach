@@ -1,4 +1,3 @@
-/* ---------------------------------------------------------------- Main ---------------------------------------------------------------- */
 header>#headerContent{
   height: 300px;
   width: 100vw;
@@ -669,7 +668,8 @@ main>#order>#checkout>#paymentMethods{
   color: white;
   font-size: 20px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 #purchaseDiv>#orderSummary>img{
   position: absolute;
@@ -688,9 +688,9 @@ main>#order>#checkout>#paymentMethods{
 #purchaseDiv>#orderSummary>table{
   border-collapse: collapse;
   color: white;
-  line-height: 28px;
+  line-height: 29px;
   font-size: 14px;
-  margin: 30px 30px 10px 30px;
+  margin: 0px 30px 10px 30px;
   width: calc(100% - 60px);
 }
 #purchaseDiv>#orderSummary>table tr td{
@@ -698,11 +698,15 @@ main>#order>#checkout>#paymentMethods{
   border-bottom: 1px solid white;
 }
 #purchaseDiv>#orderSummary>table tr td:nth-child(2){
-  color: var(--blue);
+  color: var(--gold);
 }
-#purchaseDiv>#orderSummary>#btnEditOrder{
-  width: 80%;
-  margin: 10px 10%;
+#purchaseDiv>#paymentDiv>#endGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px 10% 0 10%;
+}
+#purchaseDiv>#paymentDiv>#endGrid>#btnEditOrder{
+  width: 100%;
   height: 40px;
   line-height: 40px;
   border-radius: 4px;
@@ -715,11 +719,60 @@ main>#order>#checkout>#paymentMethods{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   transition: 0.5s;
 }
-#purchaseDiv>#orderSummary>#btnEditOrder:hover{
+#purchaseDiv>#paymentDiv>#endGrid>#btnEditOrder:hover{
   color: var(--black);
   background-color: white;
 }
+#purchaseDiv>#paymentDiv>#endGrid>#totalDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#purchaseDiv>#paymentDiv>#endGrid>#totalDiv>#totalText{
+  color: white;
+  font-size: 20px;
+}
+#purchaseDiv>#paymentDiv>#endGrid>#totalDiv>#totalText>span{
+  color: var(--gold);
+}
+#purchaseDiv>div>p>span{
+  opacity: 0.8;
+  font-style: italic;
+  margin-left: 5px;
+  font-size: 14px;
+}
+#purchaseDiv>div>.infoText{
+  margin: -15px 10% 20px 10%;
+  color: red;
+  font-size: 14px;
+  text-align: left;
+}
+#purchaseDiv>#paymentDiv>.inpDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10% 15px 10%;
+}
+#purchaseDiv>#paymentDiv>.inpDiv>p{
+  color: white;
+}
+#purchaseDiv>#paymentDiv>.inpDiv>input{
+  height: 40px;
+  width: 200px;
+  padding: 0 10px;
+  color: white;
+  font-size: 16px;
+  background-color: var(--grey);
+  border: 2px solid white;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
 #purchaseDiv>#paymentDiv>#paypal{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 20px;
+}
+/* #purchaseDiv>#paymentDiv>#paypal{
   width: 60%;
   margin: 10px 30px;
   height: 60px;
@@ -733,4 +786,4 @@ main>#order>#checkout>#paymentMethods{
   color: white;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   transition: 0.5s;
-}
+} */

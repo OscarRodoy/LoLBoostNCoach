@@ -250,18 +250,24 @@ function toggleSwitch(elm, num) {
   };
   updatePrice();
 };
+var lpCurrentValues = ["0-20", "21-40", "41-60", "61-80", "81-100"];
+var lpGainValues = ["-10", "10-15", "16-18", "19-22", "23-25", "25+"];
 var lpGainList = [1.40, 1.10, 1, 0.95, 0.90, 0.80];
 var divList = [4, 3, 2, 1];
 var priceList = [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 11.5, 13, 14.5, 16, 17.5, 20, 35, 60, 100, 150];
 var estimatedTime = document.getElementById("estimatedTime");
 var priceText = document.getElementById("priceText");
 var btnPurchase = document.getElementById("btnPurchase");
+var price = 0;
+var startNum = divList[currentDiv-1] + (currentRankArray.indexOf(currentRank) * 4);
+var endNum = divList[desiredDiv-1] + (desiredRankArray.indexOf(desiredRank) * 4);
 function updatePrice(){
-  var price = 0;
-  var startNum = divList[currentDiv-1] + (currentRankArray.indexOf(currentRank) * 4);
-  var endNum = divList[desiredDiv-1] + (desiredRankArray.indexOf(desiredRank) * 4);
+  price = 0;
+  startNum = divList[currentDiv-1] + (currentRankArray.indexOf(currentRank) * 4);
+  endNum = divList[desiredDiv-1] + (desiredRankArray.indexOf(desiredRank) * 4);
   if (startNum >= endNum) {
     priceText.innerHTML = "Invalid";
+    price = "Invalid";
     btnPurchase.style.cursor = "not-allowed";
     estimatedTime.innerHTML = `Estimated Completion Time: <span>0 Days</span>`;
     return;
@@ -279,7 +285,8 @@ function updatePrice(){
     };
   };
   price *= percentage;
-  priceText.innerHTML = `${price.toFixed(2)}€`;
+  price = price.toFixed(2);
+  priceText.innerHTML = `${price}€`;
   var time = endNum - startNum;
   estimatedTime.innerHTML = `Estimated Completion Time: <span>${time} Days</span>`;
 }; updatePrice();
@@ -302,6 +309,7 @@ var tdSpellOrderPrefrences = document.getElementById("tdSpellOrderPrefrences");
 var tdSpellOrder = document.getElementById("tdSpellOrder");
 var tdExtraBonusWin = document.getElementById("tdExtraBonusWin");
 function openPurchase(){
+  if (price == "Invalid") {return; };
   document.querySelector("main").style.filter = "blur(2px) grayscale(100%)";
   document.querySelector("main").style.pointerEvents = "none";
   document.querySelector("nav").style.filter = "blur(2px) grayscale(100%)";
@@ -317,8 +325,8 @@ function openPurchase(){
   };
   tdDesiredLP.innerHTML = `${inpDesiredLP.value}`;
   if (desiredRank != "Master") { tdDesiredLP.innerHTML = "-"; };
-  tdCurrentLP.innerHTML = `${lpCurrent}`;
-  tdLPgain.innerHTML = `${lpGain}`;
+  tdCurrentLP.innerHTML = `${lpCurrentValues[lpCurrent]}`;
+  tdLPgain.innerHTML = `${lpGainValues[lpGain]}`;
   tdPriorityOrder.innerHTML = `${toggleList[0]}`;
   tdNormalizeScore.innerHTML = `${toggleList[1]}`;
   tdSoloQueueOnly.innerHTML = `${toggleList[2]}`;
@@ -331,13 +339,20 @@ function openPurchase(){
   tdSpellOrder.innerHTML = `${spellOrder}`;
   if (!toggleList[4]) { tdSpellOrder.innerHTML = "-"; };
   tdExtraBonusWin.innerHTML = `${toggleList[5]}`;
+  document.getElementById("totalText").innerHTML = `Total: <span>${price}€</span>`;
 };
 
+var inpUsername = document.getElementById("inpUsername");
+var inpPassword = document.getElementById("inpPassword");
+var inpDisocrd = document.getElementById("inpDisocrd");
 function closePurchase(){
   document.querySelector("main").style.filter = "blur(0) grayscale(0%)";
   document.querySelector("main").style.pointerEvents = "all";
   document.querySelector("nav").style.filter = "blur(0) grayscale(0%)";
   document.querySelector("nav").style.pointerEvents = "all";
+  inpUsername.style.border = "2px solid white";
+  inpPassword.style.border = "2px solid white";
+  inpDiscord.style.border = "2px solid white";
   purchaseDiv.style.display = "none";
 };
 /* variables:
@@ -357,3 +372,39 @@ pos2
 champ1
 champ2
 */
+function generateValue(){
+  if (inpUsername.value == "" || inpPassword.value == "" || inpDiscord.value == "") {
+    if (inpUsername.value == "") {inpUsername.style.border = "2px solid red";} else {inpUsername.style.border = "2px solid white";};
+    if (inpPassword.value == "") {inpPassword.style.border = "2px solid red";} else {inpPassword.style.border = "2px solid white";};
+    if (inpDiscord.value == "") {inpDiscord.style.border = "2px solid red";} else {inpDiscord.style.border = "2px solid white";};
+    alert("You must fill in the required information in order to make a payment!");
+    return;
+  };
+  inpUsername.style.border = "2px solid white";
+  inpPassword.style.border = "2px solid white";
+  inpDiscord.style.border = "2px solid white";
+  var total = 0
+  startNum = divList[currentDiv-1] + (currentRankArray.indexOf(currentRank) * 4);
+  endNum = divList[desiredDiv-1] + (desiredRankArray.indexOf(desiredRank) * 4);
+  for (var i = startNum-1; i < endNum-1; i++){
+    total += priceList[i];
+  };
+  total -= priceList[startNum-1] * (lpCurrent / 5);
+  total *= lpGainList[lpGain];
+  var percentage = 1.00;
+  for (var i = 0; i < percentageList.length; i++){
+    if (toggleList[i]){
+      percentage += percentageList[i]-1;
+    };
+  };
+  total *= percentage;
+  return total.toFixed(2);
+};
+
+function getDatetime(){
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date+' '+time;
+  return dateTime;
+};

@@ -1,10 +1,10 @@
 divPromises = document.getElementById("promises");
 divReviews = document.getElementById("reviews");
 function home(){
-  window.location.href = "home.html";
+  window.location.href = "index.html";
 };
 function about(){
-  window.location.href = "home.html#promises";
+  window.location.href = "index.html#promises";
   divPromises.scrollIntoView({
     behavior: 'auto',
     block: 'center',
@@ -12,7 +12,7 @@ function about(){
   });
 };
 function reviews(){
-  window.location.href = "home.html#reviews";
+  window.location.href = "index.html#reviews";
   divReviews.scrollIntoView({
     behavior: 'auto',
     block: 'center',

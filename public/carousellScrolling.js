@@ -65,9 +65,9 @@ function next(side, num) {
 // content
 var content = [
   {name: "Anonymous #1793", startRank: "platinum4", endRank: "diamond3", message: "<q>Very efficent booster. Thought it would take much longer but this guy was a beast.</q>"},
-  {name: "Anonymous #932", startRank: "gold2", endRank: "platinum2", message: "<q>Super helpfull and easy to talk booster. Had a blast playing and got to where I wanted a lot quicker than he promised. Thanks!</q>"},
+  {name: "Anonymous #932", startRank: "gold2", endRank: "platinum2", message: "<q>Super helpfull and easy to talk booster. Got it done in just a single day. Thanks!</q>"},
   {name: "Anonymous #1143", startRank: "bronze3", endRank: "silver4", message: "<q>100% will come back here when I need help again, best booster ever!</q>"},
-  {name: "Anonymous #289", startRank: "silver3", endRank: "gold4", message: "<q>Been hardstuck all season, figured I'd give a service like this a go. Never been more happy with something I bought online, thanks a lot!</q>"},
+  {name: "Anonymous #289", startRank: "silver3", endRank: "gold4", message: "<q>Been hardstuck all season, this is just what i needed, thanks a lot!</q>"},
   {name: "Anonymous #756", startRank: "bronze4", endRank: "platinum4", message: "<q>Quick and easy. No bullshit, just straight into action. Love you guys!</q>"},
   {name: "Anonymous #1603", startRank: "silver2", endRank: "gold4", message: "<q>There was no way I were gonna end this season in silver again. Thanks for the help.</q>"},
   {name: "Anonymous #1271", startRank: "platinum2", endRank: "master4", message: "<q>Very nice</q>"},

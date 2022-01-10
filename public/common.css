@@ -9,6 +9,7 @@
   --darkblue: #2F3493;
   --gold: #b28936;
   --black: #000511;
+  --red: #de4848;
 
   --white: #edf0f1;
   --lightgrey: #434343;
@@ -188,6 +189,150 @@ header>nav>#btns>.active::after{
     display: block;
   }
 }
+/* ---------------------------------------------------------------- Timer ----------------------------------------------------------------- */
+.timerWrapper{
+  height: 70px;
+  background-color: var(--gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+.timerWrapper>div>h2{
+  font-size: 2vw;
+  color: white;
+}
+.timerWrapper>div>h2>span{
+  color: var(--blue);
+  text-shadow: 2px 2px black;
+}
+.timerWrapper .countdown{
+  margin: 0 auto;
+}
+.timerWrapper .countdown .bloc-time{
+  float: left;
+  margin-right: 25px;
+  text-align: center;
+}
+.timerWrapper .countdown .bloc-time:last-child{
+  margin-right: 0;
+}
+.timerWrapper .countdown .count-title{
+  display: block;
+  margin-bottom: 0px;
+  font: 12px 'Montserrat';
+  color: var(--black);
+  text-transform: uppercase;
+}
+.timerWrapper .countdown .figure{
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 30px;
+  margin-right: 7px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2), inset 2px 4px 0 0 rgba(255, 255, 255, .08);
+}
+.timerWrapper .countdown .figure:last-child{
+  margin-right: 0;
+}
+.timerWrapper .countdown .figure > span{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-family: 'Montserrat';
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--red);
+}
+.timerWrapper .countdown .figure .top:after, .countdown .figure .bottom-back:after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.timerWrapper .countdown .figure .top{
+  border-radius: 10px 10px 0 0;
+  transform: perspective(200px);
+  z-index: 3;
+  background-color: #f7f7f7;
+  transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
+.timerWrapper .countdown .figure .bottom{
+  z-index: 1;
+}
+.timerWrapper .countdown .figure .bottom:before{
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, .02);
+}
+.timerWrapper .countdown .figure .bottom-back{
+  z-index: 2;
+  top: 0;
+  height: 50%;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border-radius: 10px 10px 0 0;
+}
+.timerWrapper .countdown .figure .bottom-back span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.timerWrapper .countdown .figure .top, .countdown .figure .top-back{
+  height: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.timerWrapper .countdown .figure .top-back{
+  z-index: 4;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  transform: perspective(200px) rotateX(180deg);
+  border-radius: 0 0 10px 10px;
+}
+.timerWrapper .countdown .figure .top-back span{
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+@media only screen and (max-width: 850px){
+  .timerWrapper{
+    padding: 0 2%;
+  }
+  .timerWrapper .countdown .count-title{
+    font: 10px 'Montserrat';
+  }
+  .timerWrapper .countdown .bloc-time{
+    margin-right: 15px;
+  }
+  .timerWrapper .countdown .figure{
+    height: 25px;
+    width: 20px;
+    margin-right: 5px;
+  }
+  .timerWrapper .countdown .figure > span{
+    font-size: 20px;
+  }
+}
 /* ---------------------------------------------------------------- Footer ---------------------------------------------------------------- */
 footer{
   position: relative;
@@ -203,4 +348,39 @@ footer::before{
   height: 50px;
   z-index: 1;
   background: linear-gradient(to bottom, var(--black) 0%, rgba(0,0,0,0) 100%);
+}
+footer>h2{
+  font-size: 20px;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 70px;
+}
+footer>#gridContact{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10px 50px;
+}
+footer>#gridContact>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  transition: .5s;
+  margin-bottom: 20px;
+}
+footer>#gridContact>div>img{
+  width: 40px;
+  filter: invert(1);
+  margin-right: 10px;
+}
+footer>#gridContact>div:hover{
+  transform: scale(1.2);
+}
+@media only screen and (max-width: 850px){
+  footer>#gridContact{
+    grid-template-columns: 1fr 1fr;
+  }
 }

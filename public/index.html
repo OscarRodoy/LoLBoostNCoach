@@ -9,7 +9,17 @@
     <link rel="icon" type="image/png" href="Images/logo.png">
   </head>
   <body>
+    <div id="popUp">
+      <h3>Enter your email, get 5% off your next order</h3>
+      <p>Get notified when we do limited time offers, sales or make important announcements. You will also recieve an extra 5% discount on your next order</p>
+      <input id="inpEmail" type="text" placeholder="Enter your email here...">
+      <div id="buttons">
+        <button type"submit" id="btnSubmit">Submit</button>
+        <div id="btnClose" onclick="closeEmail()">No Thanks</div>
+      </div>
+    </div>
     <header>
+      </div>
       <div id="headerIMG"></div>
       <nav>
         <div onclick="home()" id="logo">
@@ -17,11 +27,10 @@
         </div>
         <div id="btns">
           <div onclick="home()" class="active">Home</div>
-          <div onclick="about()">About</div>
-          <div onclick="reviews()">Reviews</div>
           <div onclick="boosting()">Boosting</div>
           <div onclick="coaching()">Coaching</div>
-          <div onclick="">Profile</div>
+          <div onclick="about()">About</div>
+          <div onclick="reviews()">Reviews</div>
         </div>
         <div id="btns2">
           <div id="dropDownMenu">
@@ -32,11 +41,10 @@
             </div>
             <div id="content">
               <div onclick="home()" class="active">Home</div>
-              <div onclick="about()">About</div>
-              <div onclick="reviews()">Reviews</div>
               <div onclick="boosting()">Boosting</div>
               <div onclick="coaching()">Coaching</div>
-              <div onclick="" class="navBtns">Profile</div>
+              <div onclick="about()">About</div>
+              <div onclick="reviews()">Reviews</div>
             </div>
           </div>
         </div>
@@ -57,7 +65,7 @@
           <h1>Got any questions?</h1>
           <p>We value your safety and are always looking for ways to best take care of our customers.
              Therefore, we offer a Free Live Call with any of our friendly and professional agends to discuss any questions you might have.</p>
-          <div id="btnLiveCall"><p>Message Us On Discord</p><!--&emsp; &ensp;--><img src="Images/iconDiscord.png"></div>
+          <div onclick="alert('Add: thealexcrew#7643 on discord for quickest response')" id="btnLiveCall"><p>Message Us On Discord</p><!--&emsp; &ensp;--><img src="Images/iconDiscord.png"></div>
         </div>
         <div style="background: rgba(0, 0, 139, 0.2);">
           <img src="Images/iconTank.png">
@@ -94,9 +102,9 @@
         <div id="coaching">
           <h1>How <span>Coaching</span> Works</h1>
           <div class="divStep counterreset"><p>Click on "Meet Our Coaches"</p></div>
-          <div class="divStep"><p>Pick a coach and select how long you want your session to be</p></div>
+          <div class="divStep"><p>Customize your desired coaching session</p></div>
           <div class="divStep"><p>Use one of our payment methods</p></div>
-          <div class="divStep"><p>You will instantly get in touch with your coach on Discord where you can book a time that works for you</p></div>
+          <div class="divStep"><p>You will instantly be assigned a suitable coach through Discord who will guide you from here</p></div>
           <div class="divStep"><p>Enjoy your new improved self!</p></div>
           <div onclick="coaching()" id="btnCoaching">Meet Our Coaches</div>
         </div>
@@ -113,13 +121,56 @@
       </div>
     </main>
     <footer>
+      <h2>Contact Us</h2>
+      <div id="gridContact">
+        <div onclick="window.open('https://www.instagram.com/alexandernlo/', '_blank');"><img src="Images/iconInsta.png"><p>Message us on Instagram</p></div>
+        <div onclick="window.open('https://www.facebook.com/alexander.lundeopsahl/', '_blank');"><img src="Images/iconFace.png"><p>Message us on Facebook</p></div>
+        <div onclick="alert('Add: thealexcrew#7643 on discord for quickest response')"><img src="Images/iconDiscord.png"><p>Message us on Discord</p></div>
+        <div onclick="parent.location='mailto:alex.lunde.opsahl@gmail.com?subject=CoachNBoostSupport'"><img src="Images/iconMail.jpg"><p>Message us on e-mail</p></div>
+      </div>
       <!-- Content, Contact, emaillist inp, trademark, refund policy, TOS, cookie policy  -->
       <!--
       https://leagueoflegends.fandom.com/wiki/Rank_(League_of_Legends)
       https://leagueoflegends.fandom.com/wiki/Champion_classes?file=TFT_augment_UI_3_Levelup.png
       -->
-
     </footer>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBbVwqg3Gyyo2aY-rBmUSH2Hg-Sq2agE2M",
+        authDomain: "leagueboostingncoaching.firebaseapp.com",
+        projectId: "leagueboostingncoaching",
+        storageBucket: "leagueboostingncoaching.appspot.com",
+        messagingSenderId: "206904666284",
+        appId: "1:206904666284:web:205274a28ab212db6b5709",
+        measurementId: "G-W24LX2SN3L"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc/*, deleteFeild*/ } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+      const db = getFirestore();
+
+      function submitEmail(){
+        const docRef = addDoc(collection(db, "emails"), {
+          email: document.getElementById("inpEmail").value,
+        });
+        document.getElementById("popUp").style.display = "none";
+      };
+      document.getElementById("btnSubmit").addEventListener("click", submitEmail);
+    </script>
+    <script>
+      function closeEmail(){
+        document.getElementById("popUp").style.display = "none";
+      };
+    </script>
     <script src="common.js"></script>
     <script src="carousellScrolling.js"></script>
   </body>

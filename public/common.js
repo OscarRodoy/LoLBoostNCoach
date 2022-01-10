@@ -23,5 +23,8 @@ function boosting(){
   window.location.href = "boosting.html";
 };
 function coaching(){
+  window.location.href = "coaching.html";
+};
+function contact(){
 
 };

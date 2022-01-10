@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>LoL Boost & Coach - Coaching</title>
+    <link rel="stylesheet" href="coaching.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="carousellScrolling.css">
+    <link rel="icon" type="image/png" href="Images/logo.png">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div onclick="home()" id="logo">
+          <p>LoL Boost & Coach</p>
+        </div>
+        <div id="btns">
+          <div onclick="home()">Home</div>
+          <div onclick="boosting()">Boosting</div>
+          <div onclick="coaching()" class="active">Coaching</div>
+          <div onclick="about()">About</div>
+          <div onclick="reviews()">Reviews</div>
+        </div>
+        <div id="btns2">
+          <div id="dropDownMenu">
+            <div id="container">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div id="content">
+              <div onclick="home()">Home</div>
+              <div onclick="boosting()">Boosting</div>
+              <div onclick="coaching()" class="active">Coaching</div>
+              <div onclick="about()">About</div>
+              <div onclick="reviews()">Reviews</div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="headerContent">
+        <div id="headerIMG"></div>
+        <div id="headerText">League Professional Coaching</div>
+      </div>
+      <div class="timerWrapper">
+        <div>
+          <h2>Get <span>10% Off</span> all orders now for a <span>limited time</span> only</h2>
+        </div>
+        <div class="countdown">
+
+          <div class="bloc-time days" data-init-value="0">
+            <span class="count-title">Days</span>
+            <div class="figure days days-1">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>2</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>2</span>
+              </span>
+            </div>
+            <div class="figure days days-2">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>4</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>4</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="bloc-time hours" data-init-value="3">
+            <span class="count-title">Hours</span>
+            <div class="figure hours hours-1">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>2</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>2</span>
+              </span>
+            </div>
+            <div class="figure hours hours-2">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>4</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>4</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="bloc-time min" data-init-value="6">
+            <span class="count-title">Minutes</span>
+            <div class="figure min min-1">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>0</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>0</span>
+              </span>
+            </div>
+            <div class="figure min min-2">
+             <span class="top">9</span>
+              <span class="top-back">
+                <span>0</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>0</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="bloc-time sec" data-init-value="12">
+            <span class="count-title">Seconds</span>
+              <div class="figure sec sec-1">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>0</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>0</span>
+              </span>
+            </div>
+            <div class="figure sec sec-2">
+              <span class="top">9</span>
+              <span class="top-back">
+                <span>0</span>
+              </span>
+              <span class="bottom">9</span>
+              <span class="bottom-back">
+                <span>0</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="counterreset" id="divCoaching">
+        <div>
+          <h3 class="orderStep">Coaching</h3>
+          <p class="info">Each game includes in-game and post-game analysis</p>
+          <p>Games / Hours to play</p>
+          <div id="gridGames">
+            <div id="btnPrevGames" class="btn prev" onclick="prevGames()"><section></section> <section></section></div>
+            <div id="gamesAmount">2</div>
+            <div id="btnNextGames" class="btn next" onclick="nextGames()"><section></section> <section></section></div>
+          </div>
+          <div id="otherGrid">
+            <div>
+              <div id="helpDiv"><p>Coaching type</p><div class="infoDiv" data-tool-tip="In-game: You will be sharing your screen on Discord while the coach watches and gives valueable information. Post-game: You and the coach will rewatch the game you played and go over what you can do to improve. Custom game: You and the coach will go in a custom game where you can train with the coach where you will train where you lack, such as wave management or mechanics">i</div></div>
+              <select onchange="changeCoachingType()" id="selectCoaching">
+                <option>In-game and post-game coaching</option>
+                <option>Custom game coaching</option>
+              </select>
+            </div>
+            <div>
+              <p>Server</p>
+              <select onchange="changeServer()" id="selectServer">
+                <option>Europe West</option>
+                <option>Europe Nordic East</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="orderStep">Prefrences</h3>
+          <p>Primary Position</p>
+          <div class="positionGrid">
+            <div onclick="changePos(this, 'fill')" class="selected"><img src="Images/iconFill.png"></div>
+            <div onclick="changePos(this, 'top')"><img src="Images/iconTop.png"></div>
+            <div onclick="changePos(this, 'jungle')"><img src="Images/iconJungle.png"></div>
+            <div onclick="changePos(this, 'mid')"><img src="Images/iconMid.png"></div>
+            <div onclick="changePos(this, 'support')"><img src="Images/iconSupport.png"></div>
+            <div onclick="changePos(this, 'bottom')"><img src="Images/iconBottom.png"></div>
+          </div>
+          <div id="otherGrid">
+            <div>
+              <p>Primary Champ</p>
+              <select onchange="changeChamp()" id="selectChamp"></select>
+            </div>
+            <div>
+              <p>Current Rank</p>
+              <select onchange="changeRank()" id="selectRank"></select>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="orderStep">Checkout</h3>
+          <p class="info">Following your payment, you will be added on discord by "thealexcrew#7643" within 24 hours, who will assign you a suitable coach based on your prefrences. For a quicker response add "thealexcrew#7643" yourself.</p>
+          <div class="inpDiv">
+            <p>Discord Username:</p>
+            <input id="inpDiscord" type="text">
+          </div>
+          <p id="prize">Your Total: </p>
+          <div id="paypal"></div>
+        </div>
+      </div>
+      <!-- <h2 id="divCoachesHeadline">Meet Our Coaches</h2>
+      <div id="divCoaches"></div> -->
+      <!-- <h2 id="divPurchaseHeadline">Get Started</h2>
+      <div id="divPurchase">
+        <div id="coachingInstructions">
+          <p>1. Message one of our coaches to negotiate and plan your custom tailored boosting session</p><br>
+          <p>2. Once you have agreed on a price, type the amount in Euros into the input feild and purchase the service</p><br>
+          <p>PS: Note that any amount below what was agreed on will be declined / refunded</p>
+        </div>
+        <div id="coachingPayment">
+          <div id="divInpCoaching">
+            <p>Choose amount to pay in Euros:</p>
+            <input id="inpCoaching" type="number" value="10">
+          </div>
+           <div id="paypal"></div>
+        </div>
+      </div> -->
+      <div id="reviews">
+        <h1 class="CarousellHeadline">What Our Customers Says</h1>
+        <div id="CarousellBar_1" class="CarousellBar"> <!-- ID = jS | Class = CSS -->
+          <section onclick="next('L', '1')" id="btnNext_L1" class="btnNext btnNextL"> <section></section> <section></section> </section>
+          <section onclick="next('R', '1')" id="btnNext_R1" class="btnNext btnNextR"> <section></section> <section></section> </section>
+          <div class="divContainer">
+            <div id="divContent_1" class="divContent"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h2>Contact Us</h2>
+      <div id="gridContact">
+        <div onclick="window.open('https://www.instagram.com/alexandernlo/', '_blank');"><img src="Images/iconInsta.png"><p>Message us on Instagram</p></div>
+        <div onclick="window.open('https://www.facebook.com/alexander.lundeopsahl/', '_blank');"><img src="Images/iconFace.png"><p>Message us on Facebook</p></div>
+        <div onclick="alert('Add: thealexcrew#7643 on discord for quickest response')"><img src="Images/iconDiscord.png"><p>Message us on Discord</p></div>
+        <div onclick="parent.location='mailto:alex.lunde.opsahl@gmail.com?subject=CoachNBoostSupport'"><img src="Images/iconMail.jpg"><p>Message us on e-mail</p></div>
+      </div>
+    </footer>
+    <script src="https://www.paypal.com/sdk/js?client-id=AfO4f6fOmr9hdvTZqQtxJDPV0Lb2W4Lz7zg9PGpYYPKGxTSmzmEhuebUvbfHminIqIrQn6qlLuwZ9VQw&currency=EUR" data-namespace="paypal_sdk"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBbVwqg3Gyyo2aY-rBmUSH2Hg-Sq2agE2M",
+        authDomain: "leagueboostingncoaching.firebaseapp.com",
+        projectId: "leagueboostingncoaching",
+        storageBucket: "leagueboostingncoaching.appspot.com",
+        messagingSenderId: "206904666284",
+        appId: "1:206904666284:web:205274a28ab212db6b5709",
+        measurementId: "G-W24LX2SN3L"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc/*, deleteFeild*/ } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+      const db = getFirestore();
+
+      var object = {};
+
+      async function AddDocument_CustomID(){
+        var ref = doc(db, "CoachingOrders", String(object.orderStartTime) + " " + String(object.userDetails.name) + " " + String(object.userDetails.surname));
+        const docRef = await setDoc(
+          ref, {
+            object
+          }
+        )
+        .then(()=>{
+          alert("Thank you for your purchase! You will be added on discord by \"thealexcrew\" within 24 hours, who will assign you a suitable coach based on your prefrences. For a quicker response add \"thealexcrew\" yourself.")
+        })
+        .catch((error)=>{
+          alert("failure " + error);
+        });
+      }
+
+      paypal_sdk.Buttons({
+        createOrder: function(data, actions) {
+           return actions.order.create({
+             purchase_units: [{
+               amount: {
+                 value: generateValue(),
+               },
+             },],
+           })
+         },
+         onApprove: function(data, actions){
+           return actions.order.capture().then(function(details) {
+             object = {
+               userDetails: {
+                 name: details.payer.name.given_name,
+                 surname: details.payer.name.surname,
+                 email: details.payer.email_address,
+                 payerId: details.payer.payer_id,
+                 discord: inpDiscord.value,
+               },
+               orderStartTime: getDatetime(),
+               amountPaid: details.purchase_units[0].amount,
+               orderDetails: {
+                 games: myGames,
+                 coachingType: coachingType,
+                 position: myPos,
+                 champion: myChamp,
+                 rank: myRank,
+                 server: myServer
+               }
+             };
+             AddDocument_CustomID()
+             setTimeout(function(){ alert('Transaction completed! \n Thank you ' + details.payer.name.given_name + "!") }, 1000);
+           })
+         },
+       }).render('#paypal');
+    </script>
+    <script src="common.js"></script>
+    <script src="coaching.js"></script>
+    <script src="carousellScrolling.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      // Create Countdown
+      var Countdown = {
+
+        // Backbone-like structure
+        $el: $('.countdown'),
+
+        // Params
+        countdown_interval: null,
+        total_seconds     : 0,
+
+        // Initialize the countdown
+        init: function() {
+
+          // DOM
+      		this.$ = {
+            days   : this.$el.find('.bloc-time.days .figure'),
+          	hours  : this.$el.find('.bloc-time.hours .figure'),
+          	minutes: this.$el.find('.bloc-time.min .figure'),
+          	seconds: this.$el.find('.bloc-time.sec .figure')
+         	};
+
+          // Init countdown values
+          this.values = {
+              days   : this.$.days.parent().attr('data-init-value'),
+      	      hours  : this.$.hours.parent().attr('data-init-value'),
+              minutes: this.$.minutes.parent().attr('data-init-value'),
+              seconds: this.$.seconds.parent().attr('data-init-value'),
+          };
+
+          // Initialize total seconds
+          this.total_seconds = (this.values.days * 24 * 60 * 60) + (this.values.hours * 60 * 60) + (this.values.minutes * 60) + this.values.seconds;
+
+          // Animate countdown to the end
+          this.count();
+        },
+
+        count: function() {
+
+          var that    = this,
+              $days_1 = this.$.days.eq(0),
+              $days_2 = this.$.days.eq(1),
+              $hour_1 = this.$.hours.eq(0),
+              $hour_2 = this.$.hours.eq(1),
+              $min_1  = this.$.minutes.eq(0),
+              $min_2  = this.$.minutes.eq(1),
+              $sec_1  = this.$.seconds.eq(0),
+              $sec_2  = this.$.seconds.eq(1);
+
+              this.countdown_interval = setInterval(function() {
+
+              if(that.total_seconds > 0) {
+
+                  --that.values.seconds;
+
+                  if(that.values.minutes >= 0 && that.values.seconds < 0) {
+
+                      that.values.seconds = 59;
+                      --that.values.minutes;
+                  }
+
+                  if(that.values.hours >= 0 && that.values.minutes < 0) {
+
+                      that.values.minutes = 59;
+                      --that.values.hours;
+                  }
+
+                  if (that.values.days >= 0 && that.values.hours < 0) {
+                      that.values.hours = 23;
+                      --that.values.days;
+                  }
+
+                  // Update DOM values
+                  // Days
+                  that.checkHour(that.values.days, $days_1, $days_2);
+
+                  // Hours
+                  that.checkHour(that.values.hours, $hour_1, $hour_2);
+
+                  // Minutes
+                  that.checkHour(that.values.minutes, $min_1, $min_2);
+
+                  // Seconds
+                  that.checkHour(that.values.seconds, $sec_1, $sec_2);
+
+                  --that.total_seconds;
+              }
+              else {
+                  clearInterval(that.countdown_interval);
+              }
+          }, 1000);
+        },
+
+        animateFigure: function($el, value) {
+
+           var that         = this,
+      		     $top         = $el.find('.top'),
+               $bottom      = $el.find('.bottom'),
+               $back_top    = $el.find('.top-back'),
+               $back_bottom = $el.find('.bottom-back');
+
+          // Before we begin, change the back value
+          $back_top.find('span').html(value);
+
+          // Also change the back bottom value
+          $back_bottom.find('span').html(value);
+
+          // Then animate
+          TweenMax.to($top, 0.8, {
+              rotationX           : '-180deg',
+              transformPerspective: 300,
+      	      ease                : Quart.easeOut,
+              onComplete          : function() {
+
+                  $top.html(value);
+
+                  $bottom.html(value);
+
+                  TweenMax.set($top, { rotationX: 0 });
+              }
+          });
+
+          TweenMax.to($back_top, 0.8, {
+              rotationX           : 0,
+              transformPerspective: 300,
+      	      ease                : Quart.easeOut,
+              clearProps          : 'all'
+          });
+        },
+
+        checkHour: function(value, $el_1, $el_2) {
+
+          var val_1       = value.toString().charAt(0),
+              val_2       = value.toString().charAt(1),
+              fig_1_value = $el_1.find('.top').html(),
+              fig_2_value = $el_2.find('.top').html();
+
+          if(value >= 10) {
+
+              // Animate only if the figure has changed
+              if(fig_1_value !== val_1) this.animateFigure($el_1, val_1);
+              if(fig_2_value !== val_2) this.animateFigure($el_2, val_2);
+          }
+          else {
+
+              // If we are under 10, replace first figure with 0
+              if(fig_1_value !== '0') this.animateFigure($el_1, 0);
+              if(fig_2_value !== val_1) this.animateFigure($el_2, val_1);
+          }
+        }
+      };
+
+      // Let's go !
+      Countdown.init();
+    </script>
+  </body>
+</html>

@@ -460,7 +460,8 @@ main>#order>#checkout>.toggleContainer>.info::before{
   border-radius: 4px;
   pointer-events: none;
 }
-main>#order>#checkout>.toggleContainer>.info:hover::before{
+main>#order>#checkout>.toggleContainer>.info:hover::before,
+main>#order>#checkout>.toggleContainer>.info:active::before{
   transform: scale(1);
   bottom: 25px;
 }
@@ -595,6 +596,7 @@ main>#order>#checkout>#paymentMethods{
 @media only screen and (max-width: 760px){
   main>#order{
     grid-template-columns: 1fr;
+    margin: 0;
   }
   main>#order>#checkout{
     position: static;
@@ -777,4 +779,33 @@ main>#order>#checkout>#paymentMethods{
   width: 80%;
   margin-left: 10%;
   margin-top: 20px;
+}
+@media only screen and (max-width: 1000px){
+  #purchaseDiv{
+    left: 5%;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 850px){
+  #purchaseDiv{
+    grid-template-columns: 1fr;
+  }
+  #purchaseDiv>#paymentDiv>#endGrid{
+    margin: 10px 10% 20px 10%;
+  }
+}
+@media only screen and (max-width: 540px){
+  #purchaseDiv{
+    left: 0;
+    width: 100%;
+  }
+  #purchaseDiv>#paymentDiv>.inpDiv>input{
+    width: 150px;
+  }
+  #purchaseDiv>#paymentDiv>#endGrid>#btnEditOrder{
+    font-size: 16px;
+  }
+  #purchaseDiv>#paymentDiv>img{
+    display: none;
+  }
 }

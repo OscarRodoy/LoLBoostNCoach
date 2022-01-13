@@ -38,7 +38,7 @@ main>#divCoachesHeadline, main>#divPurchaseHeadline{
 main>#divCoaching{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 20px 50px 0px 50px;
+  margin: 20px 50px -30px 50px;
 }
 main>#divCoaching>div>.orderStep{
   color: white;
@@ -201,11 +201,11 @@ main>#divCoaching>div>#otherGrid>div>#helpDiv>.infoDiv::before{
   border-radius: 4px;
   pointer-events: none;
 }
-main>#divCoaching>div>#otherGrid>div>#helpDiv>.infoDiv:hover::before{
+main>#divCoaching>div>#otherGrid>div>#helpDiv>.infoDiv:hover::before,
+main>#divCoaching>div>#otherGrid>div>#helpDiv>.infoDiv:active::before{
   transform: scale(1);
   bottom: 25px;
 }
-
 main>#divCoaching>div>.positionGrid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -304,7 +304,18 @@ main>#divCoaching>div>#paypal{
     grid-column: 1 / 2;
   }
 }
-main>#divCoaches{
+@media only screen and (max-width: 500px){
+  main>#divCoaching{
+    margin: 20px 20px -30px 20px;
+  }
+  main>#divCoaching>div>.inpDiv{
+    margin: 0 25px 15px 25px;
+  }
+  main>#divCoaching>div>.inpDiv>input{
+    width: 150px;
+  }
+}
+/* main>#divCoaches{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
@@ -385,4 +396,4 @@ main>#divPurchase>#coachingPayment>#paypal{
   margin: 20px 0;
   margin-left: 50%;
   transform: translateX(-50%);
-}
+} */

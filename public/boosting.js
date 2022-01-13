@@ -286,7 +286,7 @@ function updatePrice(){
   };
   price *= percentage;
   price = price.toFixed(2);
-  priceText.innerHTML = `<i>${(price/0.9).toFixed(2)}€</i> ${price}€`;
+  priceText.innerHTML = `<i>${(price/0.75).toFixed(2)}€</i> ${price}€`;
   var time = endNum - startNum;
   estimatedTime.innerHTML = `Estimated Completion Time: <span>${time} Days</span>`;
 }; updatePrice();

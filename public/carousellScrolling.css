@@ -26,10 +26,12 @@ body{
    position: relative;
  }
 /************************************************************************ Next Buttons *****************************************************************/
- #reviews:hover>.CarousellBar>.btnNextL{
+ #reviews:hover>.CarousellBar>.btnNextL,
+ #reviews:active>.CarousellBar>.btnNextL{
    transform: translateX(calc(0px - var(--CarousellBarMargin)));
  }
- #reviews:hover>.CarousellBar>.btnNextR{
+ #reviews:hover>.CarousellBar>.btnNextR,
+ #reviews:active>.CarousellBar>.btnNextR{
    transform: translateX(var(--CarousellBarMargin));
  }
  .CarousellBar>.btnNext{

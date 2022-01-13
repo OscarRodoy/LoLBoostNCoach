@@ -58,6 +58,22 @@
   background-color: white;
   color: black;
 }
+@media only screen and (max-width: 540px){
+  #popUp>#buttons{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #popUp>#buttons>div,
+  #popUp>#buttons>button{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  #popUp{
+    padding: 20px 0;
+    width: 80%;
+  }
+}
 header{
   width: 100vw;
   height: 100vh;
@@ -161,7 +177,7 @@ header>#headerContent>#btnContainer>#btnCoaches:hover{
     width: 70%;
   }
   header>#headerContent>p{
-    font-size: 18px;
+    font-size: 20px;
   }
   header>#headerContent>#btnContainer>div{
     font-size: 18px;
@@ -172,10 +188,31 @@ header>#headerContent>#btnContainer>#btnCoaches:hover{
     width: 80%;
   }
   header>#headerContent>p{
-    font-size: 16px;
+    font-size: 20px;
   }
   header>#headerContent>#btnContainer>div{
     font-size: 16px;
+  }
+}
+@media only screen and (max-width: 650px){
+  header>#headerContent>#btnContainer{
+    grid-template-columns: 1fr;
+  }
+  header>#headerContent>#btnContainer>#btnPrices{
+    margin: 0 10% 25px 10%;
+  }
+  header>#headerContent>#btnContainer>#btnCoaches{
+    margin: 0 10% 0 10%;
+  }
+  header>#headerContent>h1{
+    font-size: 25px;
+  }
+  header>#headerContent>p{
+    font-size: 20px;
+  }
+  header>#headerIMG{
+    left: -100vw;
+    width: calc(100vw * 2);
   }
 }
 
@@ -235,7 +272,6 @@ main>#promises>#discord>#btnLiveCall:hover{
 }
 main>#promises>#discord>#btnLiveCall>p{
   color: white;
-  line-height: 46px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -266,7 +302,10 @@ main>#promises>#discord>#btnLiveCall>img{
     grid-template-columns: 1fr;
   }
   main>#promises>#discord{
-      grid-column: 1 / 2;
+    grid-column: 1 / 2;
+  }
+  main>#promises>#discord>#btnLiveCall>p{
+    font-size: 15px;
   }
 }
 /* ---------------------------------------------------------------- Services ---------------------------------------------------------------- */
@@ -348,7 +387,9 @@ main>#services>div>#btnBoosting, #btnCoaching{
   width: 50%;
   margin: 40px 25%;
   min-height: 60px;
-  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 4px;
   text-align: center;
   font-size: 20px;
@@ -379,5 +420,12 @@ main>#services>div>#btnBoosting:hover, #btnCoaching:hover{
   }
   main>#services{
     grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 500px){
+  main>#services>div>.divStep{
+    min-height: 100px;
+    margin: 10px 10%;
+    width: 80%;
   }
 }

@@ -27,18 +27,18 @@ var gamesAmount = document.getElementById("gamesAmount");
 var prize = document.getElementById("prize");
 var myGames = 2;
 var maxGames = 10;
-prize.innerHTML = `Your total: <i>${((myGames*15)/0.9).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
+prize.innerHTML = `Your total: <i>${((myGames*15)/0.75).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
 function prevGames(){
   if (myGames - 1 <= 0){return;};
   myGames -= 1;
   gamesAmount.innerHTML = `${myGames}`;
-  prize.innerHTML = `Your total: <i>${((myGames*15)/0.9).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
+  prize.innerHTML = `Your total: <i>${((myGames*15)/0.75).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
 };
 function nextGames(){
   if (myGames + 1 > maxGames){return;};
   myGames += 1;
   gamesAmount.innerHTML = `${myGames}`;
-  prize.innerHTML = `Your total: <i>${((myGames*15)/0.9).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
+  prize.innerHTML = `Your total: <i>${((myGames*15)/0.75).toFixed(2)}€</i> <span>${(myGames*15).toFixed(2)}€</span>`;
 };
 var selectCoaching = document.getElementById("selectCoaching");
 var coachingType = selectCoaching.value;

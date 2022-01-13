@@ -102,27 +102,33 @@ header>nav>#btns2>#dropDownMenu>#content>div{
   z-index: 100;
   text-align: center;
 }
-header>nav>#btns2>#dropDownMenu>#content>div:hover{
+header>nav>#btns2>#dropDownMenu>#content>div:hover,
+header>nav>#btns2>#dropDownMenu>#content>div:active{
   color: black;
   background-color: white;
 }
-header>nav>#btns2>#dropDownMenu:hover>#content{
+header>nav>#btns2>#dropDownMenu:hover>#content,
+header>nav>#btns2>#dropDownMenu:active>#content{
   display: block;
 }
-header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(1){
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(1),
+header>nav>#btns2>#dropDownMenu:active>#container>div:nth-child(1){
   background-color: var(--gold);
   transform: rotate(45deg);
   margin-bottom: -11px;
 }
-header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(2){
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(2),
+header>nav>#btns2>#dropDownMenu:active>#container>div:nth-child(2){
   transform: scale(0);
 }
-header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(3){
+header>nav>#btns2>#dropDownMenu:hover>#container>div:nth-child(3),
+header>nav>#btns2>#dropDownMenu:active>#container>div:nth-child(3){
   background-color: var(--gold);
   transform: rotate(-45deg);
   margin-top: -11px;
 }
-header>nav>#btns2>#dropDownMenu>#content:hover{
+header>nav>#btns2>#dropDownMenu>#content:hover,
+header>nav>#btns2>#dropDownMenu>#content:active{
   display: block;
 }
 header>nav>#btns{
@@ -189,17 +195,117 @@ header>nav>#btns>.active::after{
     display: block;
   }
 }
+@media only screen and (max-width: 480px){
+  header>nav>#btns2{
+    width: 150px;
+  }
+  header>nav>#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--headerHeight);
+  }
+  header>nav>#logo>p{
+    font-size: 15px;
+    line-height: normal;
+  }
+  header>nav>#btns2>#dropDownMenu>#content>div{
+    width: 100vw;
+  }
+}
+/* ----------------------------------------------------------------- FAQ ------------------------------------------------------------------ */
+#divFaq{
+  margin: 50px;
+}
+#divFaq>h1{
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#divFaq>.questionWrapper{
+  margin: 0 20%;
+  color: var(--lightbeige);
+  border-bottom: 2px solid white;
+}
+#divFaq>.questionWrapper>.question{
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+#divFaq>.questionWrapper>.question::after{
+  content: attr(data-before);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: var(--lightbeige);
+}
+#divFaq>.questionWrapper>.awnser{
+  max-height: 0;
+  overflow: hidden;
+  padding: 0px 20px;
+  background-color: white;
+  color: var(--black);
+  transition: .5s linear;
+}
+#divFaq>.questionWrapper>.awnser.visible{
+  max-height: 100px;
+  padding: 10px 20px;
+}
+@media only screen and (max-width: 1100px){
+  #divFaq>.questionWrapper>.awnser.visible{
+    max-height: 150px;
+  }
+}
+@media only screen and (max-width: 810px){
+  #divFaq>.questionWrapper>.awnser.visible{
+    max-height: 220px;
+  }
+  #divFaq>.questionWrapper{
+    margin: 0 10%;
+  }
+}
+@media only screen and (max-width: 600px){
+  #divFaq>.questionWrapper{
+    margin: 0 4%;
+  }
+  #divFaq{
+    margin: 35px;
+  }
+  #divFaq>.questionWrapper>.question{
+    height: 80px;
+  }
+  #divFaq>.questionWrapper>.awnser.visible{
+    max-height: 280px;
+  }
+}
+@media only screen and (max-width: 400px){
+  #divFaq>.questionWrapper{
+    margin: 0 2%;
+  }
+  #divFaq{
+    margin: 25px;
+  }
+}
 /* ---------------------------------------------------------------- Timer ----------------------------------------------------------------- */
 .timerWrapper{
   height: 70px;
   background-color: var(--gold);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
   padding: 0 5%;
 }
+.timerWrapper>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .timerWrapper>div>h2{
-  font-size: 2vw;
+  font-size: 20px;
   color: white;
 }
 .timerWrapper>div>h2>span{
@@ -314,23 +420,45 @@ header>nav>#btns>.active::after{
   right: 0;
   margin: auto;
 }
-@media only screen and (max-width: 850px){
+@media only screen and (max-width: 1000px){
   .timerWrapper{
     padding: 0 2%;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+  }
+  .timerWrapper>div>h2{
+    font-size: 17px;
+    color: white;
+    text-align: center;
   }
   .timerWrapper .countdown .count-title{
     font: 10px 'Montserrat';
   }
   .timerWrapper .countdown .bloc-time{
-    margin-right: 15px;
+    margin-right: 13px;
   }
   .timerWrapper .countdown .figure{
     height: 25px;
     width: 20px;
-    margin-right: 5px;
+    margin-right: 4px;
   }
   .timerWrapper .countdown .figure > span{
     font-size: 20px;
+  }
+}
+@media only screen and (max-width: 650px){
+  .timerWrapper{
+    padding: 0 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 500px){
+  .timerWrapper{
+    padding: 0 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 95px;
   }
 }
 /* ---------------------------------------------------------------- Footer ---------------------------------------------------------------- */

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>LoL Boost & Coach - Coaching</title>
     <link rel="stylesheet" href="coaching.css">
@@ -20,10 +21,11 @@
           <div onclick="boosting()">Boosting</div>
           <div onclick="coaching()" class="active">Coaching</div>
           <div onclick="about()">About</div>
+          <div onclick="faq()">FAQ</div>
           <div onclick="reviews()">Reviews</div>
         </div>
         <div id="btns2">
-          <div id="dropDownMenu">
+          <div id="dropDownMenu" onclick="openNav(this)">
             <div id="container">
               <div></div>
               <div></div>
@@ -34,6 +36,7 @@
               <div onclick="boosting()">Boosting</div>
               <div onclick="coaching()" class="active">Coaching</div>
               <div onclick="about()">About</div>
+              <div onclick="faq()">FAQ</div>
               <div onclick="reviews()">Reviews</div>
             </div>
           </div>
@@ -45,28 +48,28 @@
       </div>
       <div class="timerWrapper">
         <div>
-          <h2>Get <span>10% Off</span> all orders now for a <span>limited time</span> only</h2>
+          <h2>Get <span>25% Off</span> all orders now for a <span>limited time</span> only</h2>
         </div>
         <div class="countdown">
 
           <div class="bloc-time days" data-init-value="0">
             <span class="count-title">Days</span>
             <div class="figure days days-1">
-              <span class="top">9</span>
+              <span class="top">1</span>
               <span class="top-back">
                 <span>2</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">1</span>
               <span class="bottom-back">
                 <span>2</span>
               </span>
             </div>
             <div class="figure days days-2">
-              <span class="top">9</span>
+              <span class="top">3</span>
               <span class="top-back">
                 <span>4</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">3</span>
               <span class="bottom-back">
                 <span>4</span>
               </span>
@@ -76,21 +79,21 @@
           <div class="bloc-time hours" data-init-value="3">
             <span class="count-title">Hours</span>
             <div class="figure hours hours-1">
-              <span class="top">9</span>
+              <span class="top">2</span>
               <span class="top-back">
                 <span>2</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">2</span>
               <span class="bottom-back">
                 <span>2</span>
               </span>
             </div>
             <div class="figure hours hours-2">
-              <span class="top">9</span>
+              <span class="top">3</span>
               <span class="top-back">
                 <span>4</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">3</span>
               <span class="bottom-back">
                 <span>4</span>
               </span>
@@ -100,11 +103,11 @@
           <div class="bloc-time min" data-init-value="6">
             <span class="count-title">Minutes</span>
             <div class="figure min min-1">
-              <span class="top">9</span>
+              <span class="top">5</span>
               <span class="top-back">
                 <span>0</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">5</span>
               <span class="bottom-back">
                 <span>0</span>
               </span>
@@ -124,11 +127,11 @@
           <div class="bloc-time sec" data-init-value="12">
             <span class="count-title">Seconds</span>
               <div class="figure sec sec-1">
-              <span class="top">9</span>
+              <span class="top">5</span>
               <span class="top-back">
                 <span>0</span>
               </span>
-              <span class="bottom">9</span>
+              <span class="bottom">5</span>
               <span class="bottom-back">
                 <span>0</span>
               </span>
@@ -226,6 +229,25 @@
            <div id="paypal"></div>
         </div>
       </div> -->
+      <div id="divFaq">
+        <h1>Frequently Asked Questions</h1>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>How do I know this is not a scam?</p></div>
+          <div class="awnser"><p>We understand the need for proof and security. We offer direct contact to the owner for free, and we use safe payment methods like paypal and payment by card.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>Why should you chose to invest in us?</p></div>
+          <div class="awnser"><p>We have checked out our competitors and we are the top 1% cheapest eloboost/coaching you will find. We also offer in game and post game coaching in one package, something you wont find a lot of other places. Our boosters/coaches also have 5+ years of experience.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>When will the boosting be completed?</p></div>
+          <div class="awnser"><p>This depends of your order size and LP gain, however you will be able to track the progress by being in direct contact with the booster.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>Got any other questions?</p></div>
+          <div class="awnser"><p>If you have any other questions and it's urgent the best way to contact us is by either adding us on discord (thealexcrew#7643) or sending a direct dm on instagram. And remember no questions are stupid 🙂</p></div>
+        </div>
+      </div>
       <div id="reviews">
         <h1 class="CarousellHeadline">What Our Customers Says</h1>
         <div id="CarousellBar_1" class="CarousellBar"> <!-- ID = jS | Class = CSS -->

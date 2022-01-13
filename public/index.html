@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>LoL Boost & Coach</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="common.css">
@@ -30,10 +32,11 @@
           <div onclick="boosting()">Boosting</div>
           <div onclick="coaching()">Coaching</div>
           <div onclick="about()">About</div>
+          <div onclick="faq()">FAQ</div>
           <div onclick="reviews()">Reviews</div>
         </div>
         <div id="btns2">
-          <div id="dropDownMenu">
+          <div id="dropDownMenu" onclick="openNav(this)">
             <div id="container">
               <div></div>
               <div></div>
@@ -44,6 +47,7 @@
               <div onclick="boosting()">Boosting</div>
               <div onclick="coaching()">Coaching</div>
               <div onclick="about()">About</div>
+              <div onclick="faq()">FAQ</div>
               <div onclick="reviews()">Reviews</div>
             </div>
           </div>
@@ -109,6 +113,25 @@
           <div onclick="coaching()" id="btnCoaching">Meet Our Coaches</div>
         </div>
       </div>
+      <div id="divFaq">
+        <h1>Frequently Asked Questions</h1>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>How do I know this is not a scam?</p></div>
+          <div class="awnser"><p>We understand the need for proof and security. We offer direct contact to the owner for free, and we use safe payment methods like paypal and payment by card.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>Why should you chose to invest in us?</p></div>
+          <div class="awnser"><p>We have checked out our competitors and we are the top 1% cheapest eloboost/coaching you will find. We also offer in game and post game coaching in one package, something you wont find a lot of other places. Our boosters/coaches also have 5+ years of experience.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>When will the boosting be completed?</p></div>
+          <div class="awnser"><p>This depends of your order size and LP gain, however you will be able to track the progress by being in direct contact with the booster.</p></div>
+        </div>
+        <div class="questionWrapper">
+          <div onclick="openQuestion(this)" class="question" data-before="+"><p>Got any other questions?</p></div>
+          <div class="awnser"><p>If you have any other questions and it's urgent the best way to contact us is by either adding us on discord (thealexcrew#7643) or sending a direct dm on instagram. And remember no questions are stupid 🙂</p></div>
+        </div>
+      </div>
       <div id="reviews">
         <h1 class="CarousellHeadline">What Our Customers Says</h1>
         <div id="CarousellBar_1" class="CarousellBar"> <!-- ID = jS | Class = CSS -->
@@ -159,10 +182,11 @@
       const db = getFirestore();
 
       function submitEmail(){
+        document.getElementById("popUp").style.display = "none";
+        if (document.getElementById("inpEmail").value == ""){ return; };
         const docRef = addDoc(collection(db, "emails"), {
           email: document.getElementById("inpEmail").value,
         });
-        document.getElementById("popUp").style.display = "none";
       };
       document.getElementById("btnSubmit").addEventListener("click", submitEmail);
     </script>
